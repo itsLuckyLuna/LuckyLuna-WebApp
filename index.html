@@ -1,263 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LuckyLuna Royale | Official 1XBET VIP</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>LuckyLuna x 1XBET — VIP Entry</title>
 
-    <style>
-        :root { --p: #020617; --s: #ec4899; --g: #f59e0b; --tg: #0088cc; }
-        body { 
-            background-color: var(--p); 
-            color: white; 
-            font-family: 'Montserrat', sans-serif; 
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .font-header { font-family: 'Cinzel', serif; }
+  <!-- Tailwind, Animate.css, fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
-        /* Performance Optimized Glass */
-        .glass { 
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            will-change: transform, opacity;
-        }
+  <!-- GSAP for rich animations, tsParticles for background particles, confetti -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.8.0/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-        /* Gold Shimmer Effect */
-        .gold-shimmer {
-            background: linear-gradient(90deg, #f59e0b, #fffbeb, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-        /* Background Particle Layer */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+  <style>
+    :root{
+      --bg:#071028;
+      --card: rgba(255,255,255,0.04);
+      --accent:#f472b6;
+      --gold:#fbbf24;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; background:linear-gradient(180deg,#051025 0%, #071028 45%, #0b1020 100%); color:#e6eef8; font-family:'Montserrat',sans-serif; -webkit-font-smoothing:antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        /* Smooth Accordion */
-        .accordion-content { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-            opacity: 0;
-        }
-        .open .accordion-content { 
-            max-height: 500px; 
-            opacity: 1;
-            padding-bottom: 20px;
-        }
+    /* Glass card */
+    .glass{ background:var(--card); backdrop-filter: blur(10px) saturate(120%); border: 1px solid rgba(255,255,255,0.06); }
 
-        .tg-card {
-            background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
-            box-shadow: 0 10px 30px rgba(34, 158, 217, 0.3);
-        }
-    </style>
+    /* Luxury text gradient shimmer */
+    .gold-shimmer{ background:linear-gradient(90deg,var(--gold),#fff9e6,var(--gold)); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shine 3s linear infinite }
+    @keyframes shine{ to{ background-position:200% center } }
+
+    /* custom slider */
+    input[type='range']{ -webkit-appearance:none; width:100%; height:10px; background:rgba(255,255,255,0.04); border-radius:12px }
+    input[type='range']::-webkit-slider-thumb{ -webkit-appearance:none; width:28px; height:28px; border-radius:50%; border:3px solid #fff; background:var(--accent); box-shadow:0 6px 20px rgba(244,114,182,0.35)}
+
+    /* neon moon */
+    .moon{ width:120px; height:120px; border-radius:999px; background: radial-gradient(circle at 35% 25%, #fff2, #fdf6ea 8%, #f472b6 25%, #7b2 60%, #0000 61%); box-shadow: 0 6px 40px rgba(244,114,182,0.15), inset 0 -10px 40px rgba(0,0,0,0.25)}
+
+    /* subtle blur for hero rays */
+    .rays{ position:absolute; inset: -60px -40px auto -40px; pointer-events:none; opacity:0.08; filter: blur(16px)}
+
+    /* accessible focus states */
+    a:focus, button:focus, input:focus{ outline:2px solid rgba(244,114,182,0.25); outline-offset:3px }
+
+    /* preloader */
+    #preloader{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#071028 0%, #071028 80%); z-index:9999 }
+  </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div id="particles-js"></div>
+  <!-- Preloader / micro animation -->
+  <div id="preloader" aria-hidden="true">
+    <div class="flex flex-col items-center gap-4">
+      <div class="moon animate-pulse"></div>
+      <div class="text-center text-xs text-gray-300">LuckyLuna x 1XBET — Loading VIP Experience…</div>
+    </div>
+  </div>
 
-    <nav class="p-5 flex justify-between items-center bg-[#020617]/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/5">
-        <div class="nav-item">
-            <span class="font-header text-xl tracking-tighter gold-shimmer">LuckyLuna</span>
-            <div class="flex items-center space-x-1">
-                <span class="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
-                <span class="text-[7px] uppercase tracking-[0.3em] text-pink-500 font-bold">Elite Verified</span>
-            </div>
-        </div>
-        <div class="glass px-4 py-1.5 rounded-full border-pink-500/20">
-            <span class="text-[10px] font-black text-white">USD PORTAL</span>
-        </div>
-    </nav>
+  <!-- Particle background (canvas) -->
+  <div id="tsparticles" class="fixed inset-0 -z-10" aria-hidden="true"></div>
 
-    <section class="py-12 px-8 text-center" id="hero">
-        <h1 class="text-4xl font-header font-bold mb-4 leading-tight">
-            UNLOCK YOUR <br><span class="gold-shimmer">$2,370</span> VIP GIFT
-        </h1>
-        <p class="text-[10px] text-gray-400 uppercase tracking-[0.4em] mb-10">Exclusive Player Access via Luna</p>
-        
-        <div class="flex justify-center space-x-3 mb-4">
-            <div class="glass px-6 py-4 rounded-3xl border-t border-white/10">
-                <span class="block text-xl font-black text-white">100%</span>
-                <span class="text-[8px] text-pink-500 font-bold uppercase">Cash Match</span>
-            </div>
-            <div class="glass px-6 py-4 rounded-3xl border-t border-white/10">
-                <span class="block text-xl font-black text-white">150</span>
-                <span class="text-[8px] text-pink-500 font-bold uppercase">Free Spins</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 mb-12" id="tg-section">
-        <div onclick="tg.openTelegramLink('https://t.me/LuckyLunaChannel')" class="tg-card p-6 rounded-[2.5rem] relative overflow-hidden active:scale-95 transition-transform cursor-pointer">
-            <div class="relative z-10">
-                <div class="flex items-center space-x-2 mb-2">
-                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                    </div>
-                    <span class="text-[10px] font-black uppercase tracking-widest">Join The Circle</span>
-                </div>
-                <h3 class="text-xl font-bold mb-1">LuckyLuna Telegram</h3>
-                <p class="text-white/70 text-[10px] mb-4 font-medium italic">Never miss a secret bonus or big win alert.</p>
-                <span class="bg-white text-blue-600 px-4 py-1.5 rounded-full text-[9px] font-black uppercase">Follow Now →</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 mb-12 space-y-3" id="steps">
-        <h3 class="text-[9px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4 ml-2">Quick Start Guide</h3>
-        <div class="glass p-4 rounded-2xl flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center text-pink-500 font-bold">01</div>
-            <div>
-                <p class="text-xs font-bold uppercase">Register & Verify</p>
-                <p class="text-[10px] text-gray-400 font-medium">Use link below. Activate phone number.</p>
-            </div>
-        </div>
-        <div class="glass p-4 rounded-2xl flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-500 font-bold">02</div>
-            <div>
-                <p class="text-xs font-bold uppercase">Select Bonus</p>
-                <p class="text-[10px] text-gray-400 font-medium">Tick "Take part in bonus offers" in settings.</p>
-            </div>
-        </div>
-        <div class="glass p-4 rounded-2xl flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-500 font-bold">03</div>
-            <div>
-                <p class="text-xs font-bold uppercase">Deposit & Win</p>
-                <p class="text-[10px] text-gray-400 font-medium">Automatic credit on $10.50+ deposit.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 mb-12">
-        <div class="grid grid-cols-2 gap-3">
-            <div class="glass p-5 rounded-3xl border-t border-pink-500/30">
-                <p class="text-[9px] font-bold text-pink-500 mb-1 tracking-tighter">1st Deposit</p>
-                <p class="text-xl font-black">$475</p>
-                <p class="text-[8px] font-bold text-gray-400 uppercase">+30 Free Spins</p>
-            </div>
-            <div class="glass p-5 rounded-3xl border-t border-pink-500/30">
-                <p class="text-[9px] font-bold text-pink-500 mb-1 tracking-tighter">2nd Deposit</p>
-                <p class="text-xl font-black">$530</p>
-                <p class="text-[8px] font-bold text-gray-400 uppercase">+35 Free Spins</p>
-            </div>
-            <div class="glass p-5 rounded-3xl border-t border-pink-500/30">
-                <p class="text-[9px] font-bold text-pink-500 mb-1 tracking-tighter">3rd Deposit</p>
-                <p class="text-xl font-black">$660</p>
-                <p class="text-[8px] font-bold text-gray-400 uppercase">+40 Free Spins</p>
-            </div>
-            <div class="glass p-5 rounded-3xl border-t border-pink-500/30">
-                <p class="text-[9px] font-bold text-pink-500 mb-1 tracking-tighter">4th Deposit</p>
-                <p class="text-xl font-black">$715</p>
-                <p class="text-[8px] font-bold text-gray-400 uppercase">+45 Free Spins</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 mb-40">
-        <h3 class="text-[9px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4 text-center">Frequently Asked</h3>
-        <div class="space-y-3">
-            <div class="glass rounded-2xl overflow-hidden accordion-item" onclick="toggleAccordion(this)">
-                <div class="p-5 flex justify-between items-center cursor-pointer">
-                    <span class="text-[10px] font-black uppercase tracking-widest">Withdrawal Speed?</span>
-                    <span class="text-pink-500 text-lg">+</span>
-                </div>
-                <div class="accordion-content px-5 text-[10px] text-gray-400 leading-relaxed">
-                    1XBET process withdrawals instantly. Most players receive their funds via local methods or e-wallets within 15 minutes of request.
-                </div>
-            </div>
-            <div class="glass rounded-2xl overflow-hidden accordion-item" onclick="toggleAccordion(this)">
-                <div class="p-5 flex justify-between items-center cursor-pointer">
-                    <span class="text-[10px] font-black uppercase tracking-widest">Wagering Rules?</span>
-                    <span class="text-pink-500 text-lg">+</span>
-                </div>
-                <div class="accordion-content px-5 text-[10px] text-gray-400 leading-relaxed">
-                    All bonuses are subject to a x35 wagering requirement within 7 days. Max bet during wagering is $5.25. Crypto accounts are excluded.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#020617] via-[#020617] to-transparent z-[60]">
-        <button id="finalCta" class="w-full bg-gradient-to-r from-pink-500 to-pink-700 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm shadow-[0_20px_60px_rgba(236,72,153,0.5)] active:scale-95 transition-all">
-            REGISTER & CLAIM $2,370
-        </button>
+  <!-- Top nav -->
+  <nav class="p-4 flex items-center justify-between sticky top-0 z-50 glass/90 backdrop-blur-md">
+    <div class="flex items-center gap-3">
+      <div class="rounded-full w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-pink-500 to-pink-400 shadow-lg">
+        <img src="https://ui-avatars.com/api/?name=LL&background=f472b6&color=fff&size=64" alt="Lucky Luna" class="w-8 h-8 rounded-full"/>
+      </div>
+      <div>
+        <div class="text-lg font-semibold font-playfair">Lucky<span class="text-pink-300">Luna</span></div>
+        <div class="text-[11px] text-gray-400">VIP Picks • Trusted Odds</div>
+      </div>
     </div>
 
-    <script>
-        const tg = window.Telegram.WebApp;
-        tg.expand();
-        tg.ready();
-        tg.setHeaderColor('#020617');
+    <div class="flex items-center gap-3">
+      <div class="px-3 py-1 rounded-full text-[11px] font-bold text-yellow-300 bg-yellow-900/10 border border-yellow-400/10">PROMO: LUNA1X</div>
+      <button id="menuBtn" class="text-xs uppercase tracking-widest font-bold px-3 py-2 rounded-md glass">Menu</button>
+    </div>
+  </nav>
 
-        // 1. GSAP INTRANCE ANIMATIONS (60FPS Smoothness)
-        window.onload = () => {
-            const tl = gsap.timeline();
-            tl.from("nav", { y: -50, opacity: 0, duration: 0.8, ease: "power4.out" })
-              .from("#hero", { scale: 0.9, opacity: 0, duration: 1, ease: "back.out(1.7)" }, "-=0.4")
-              .from(".glass", { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" }, "-=0.6")
-              .from("#tg-section", { x: 50, opacity: 0, duration: 0.8 }, "-=0.4");
-        };
+  <!-- HERO -->
+  <header class="max-w-4xl mx-auto text-center py-12 px-6 relative">
+    <div class="rays">
+      <svg viewBox="0 0 800 200" class="w-full h-40 opacity-50">
+        <defs>
+          <radialGradient id="g" cx="50%" cy="30%">
+            <stop offset="0%" stop-color="#f472b6" stop-opacity="0.25"/>
+            <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.06"/>
+            <stop offset="100%" stop-color="#071028" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#g)"/>
+      </svg>
+    </div>
 
-        // 2. LUXURY PARTICLES BACKGROUND
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ec4899" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.15 },
-                "size": { "value": 2 },
-                "move": { "enable": true, "speed": 0.8, "direction": "top", "random": true, "straight": false, "out_mode": "out" }
-            }
-        });
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold font-playfair leading-tight mb-4 animate__animated animate__fadeInDown">Play Like a <span class="gold-shimmer">Queen</span>, Win Like a Pro</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto text-sm mb-6 animate__animated animate__fadeInUp">Join Luna's private circle and get high-confidence picks, VIP bonuses and exclusive promos on 1XBET.</p>
 
-        // 3. ACCORDION LOGIC
-        function toggleAccordion(element) {
-            tg.HapticFeedback.impactOccurred('light');
-            element.classList.toggle('open');
-            const icon = element.querySelector('.text-pink-500');
-            icon.innerText = element.classList.contains('open') ? '−' : '+';
+      <div class="flex flex-col md:flex-row items-center gap-4 justify-center">
+        <div class="glass p-5 rounded-2xl w-full md:w-[420px] shadow-xl">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="moon shrink-0"></div>
+            <div class="text-left">
+              <div class="text-sm font-bold">Luna's Private Circle</div>
+              <div class="text-xs text-green-300 font-semibold">🟢 <span id="liveCount">1,240</span> Players Online</div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="depositSlider" class="text-[11px] uppercase tracking-wider text-pink-200 font-bold">Your First Deposit</label>
+            <div class="flex items-end justify-between mb-2">
+              <div class="text-xs text-gray-400">Min $10 — Max $1000</div>
+              <div class="text-2xl font-mono font-bold">$<span id="depositVal">100</span></div>
+            </div>
+            <input id="depositSlider" type="range" min="10" max="1000" step="10" value="100" aria-label="Deposit slider">
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl text-center border border-white/6">
+            <div class="text-[9px] uppercase tracking-widest text-gray-300 mb-1">Total to Play With</div>
+            <div class="text-4xl font-playfair font-bold text-pink-300" id="totalDisplay">$200</div>
+            <div class="text-[11px] mt-2 font-semibold text-yellow-300">+ 150 FREE SPINS 🎰</div>
+          </div>
+
+          <button id="ctaBtn" class="mt-4 w-full py-3 rounded-xl font-bold uppercase tracking-widest shadow-lg">Create Account & Claim Bonus</button>
+        </div>
+
+        <div class="w-full md:w-[360px]">
+          <div class="glass p-6 rounded-2xl shadow-2xl">
+            <div class="text-[11px] uppercase text-gray-400 font-bold mb-2">Why LuckyLuna Trust 1XBET</div>
+            <ul class="grid grid-cols-2 gap-3 text-center">
+              <li class="p-3 glass rounded-xl"><div class="text-xl">⚡</div><div class="text-[11px] font-bold uppercase">Fast Payouts</div></li>
+              <li class="p-3 glass rounded-xl"><div class="text-xl">🛡️</div><div class="text-[11px] font-bold uppercase">Licensed</div></li>
+              <li class="p-3 glass rounded-xl"><div class="text-xl">⚽</div><div class="text-[11px] font-bold uppercase">1000+ Events</div></li>
+              <li class="p-3 glass rounded-xl"><div class="text-xl">💎</div><div class="text-[11px] font-bold uppercase">VIP Loyalty</div></li>
+            </ul>
+
+            <div class="mt-4 text-[12px] text-gray-300 italic">"I only play where I can win. Join me and let's win together!" — Luna</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <button id="demoOdds" class="text-[13px] py-2 px-4 rounded-full glass font-semibold">See Demo Odds</button>
+        <button id="howItWorks" class="text-[13px] py-2 px-4 rounded-full glass font-semibold">How It Works</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Ticker & Testimonials -->
+  <main class="max-w-5xl mx-auto px-6 pb-24">
+    <div class="flex flex-col md:flex-row gap-6">
+      <section class="flex-1 glass p-6 rounded-2xl shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-xs uppercase text-gray-300 font-bold">Live wins (sample)</div>
+          <div class="text-xs text-green-300 font-bold">Updated Now</div>
+        </div>
+        <div id="ticker" class="space-y-3 text-sm"></div>
+
+        <div class="mt-6 border-t border-white/8 pt-4">
+          <div class="text-xs text-gray-400 mb-2 uppercase font-bold">Recent Testimonials</div>
+          <div class="space-y-3" id="testimonials">
+            <!-- inserted by JS -->
+          </div>
+        </div>
+      </section>
+
+      <aside class="w-full md:w-80 glass p-6 rounded-2xl shadow-lg">
+        <div class="text-xs uppercase text-gray-300 font-bold mb-4">Trusted By</div>
+        <div class="flex flex-wrap gap-3 items-center justify-center mb-4">
+          <img src="https://via.placeholder.com/80x28?text=Visa" alt="Visa" class="h-7 object-contain opacity-90"/>
+          <img src="https://via.placeholder.com/80x28?text=Mastercard" alt="MC" class="h-7 object-contain"/>
+          <img src="https://via.placeholder.com/80x28?text=Crypto" alt="Crypto" class="h-7 object-contain"/>
+        </div>
+
+        <div class="text-xs text-gray-300 mb-3">Safe registration • 24/7 support • Fast withdrawals</div>
+        <button id="supportBtn" class="w-full py-3 rounded-xl font-semibold glass">Contact Support</button>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-[12px] text-gray-400 pb-8">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-3">🔞 Play Responsibly. 1XBET is a licensed operator.</div>
+      <div class="flex items-center justify-center gap-6 opacity-80">
+        <a href="#" class="uppercase">Terms</a>
+        <a href="#" class="uppercase">Privacy</a>
+        <a href="#" class="uppercase">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal (hidden) -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50 bg-black/60">
+    <div class="glass p-6 rounded-2xl max-w-xl w-full">
+      <h3 class="font-bold text-xl mb-2">How it works</h3>
+      <p class="text-sm text-gray-300 mb-4">We match 100% of your first deposit up to the promotional cap. Picks are curated by Luna — small, high-confidence plays designed for long-term wins. Always gamble responsibly.</p>
+      <div class="flex justify-end gap-3">
+        <button id="closeModal" class="px-4 py-2 rounded-md glass">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- CONFIG / EASY EDIT ----------
+    // Edit your affiliate link here or pass via URL param `aff` (ex: ?aff=https://1xbet.com/registration?ref=XYZ)
+    const AFFILIATE_LINK = (new URLSearchParams(location.search).get('aff') || 'https://1xbet.com/registration');
+
+    // ---------- TELEGRAM WEBAPP SETUP ----------
+    const tg = window.Telegram?.WebApp;
+    if(tg){
+      tg.ready();
+      try{ tg.expand(); }catch(e){}
+      // style main button
+      tg.MainButton.setParams({ color: '#f472b6', text_color: '#ffffff' });
+      tg.MainButton.setText('CLAIM 100% BONUS');
+      tg.MainButton.show();
+      tg.MainButton.onClick(()=> startConversion('tg-main'));
+    }
+
+    // Hide preloader after basic init
+    window.addEventListener('load', ()=>{
+      gsap.to('#preloader',{ autoAlpha:0, duration:0.6, onComplete: ()=>document.getElementById('preloader').style.display='none' });
+    });
+
+    // ---------- particles BG ----------
+    tsParticles.load('tsparticles', {
+      fullScreen: { enable:false },
+      particles: {
+        number: { value: 40, density: { enable:true, area: 800 } },
+        color: { value: ['#f472b6', '#fbbf24', '#ffffff'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.12 },
+        size: { value: { min: 1, max: 6 } },
+        move: { enable: true, speed: 0.8, direction: 'top', outModes: 'out' }
+      },
+      interactivity: { events: { onHover: { enable:true, mode:'grab' }, onClick: { enable:false } }, modes: { grab: { distance:120 } } }
+    });
+
+    // ---------- UI ELEMENTS ----------
+    const depSlider = document.getElementById('depositSlider');
+    const depVal = document.getElementById('depositVal');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const ctaBtn = document.getElementById('ctaBtn');
+    const demoOdds = document.getElementById('demoOdds');
+    const howItWorks = document.getElementById('howItWorks');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+
+    function formatMoney(n){ return Number(n).toLocaleString(); }
+
+    function calculateBonus(deposit){
+      // flexible bonus logic — 100% up to $500, then 50% after
+      const depositNum = Number(deposit);
+      const matchCap = 500;
+      let bonus = depositNum <= matchCap ? depositNum : (matchCap + (depositNum - matchCap) * 0.5);
+      // small rounding and visual flourish
+      bonus = Math.round(bonus/5)*5;
+      return bonus;
+    }
+
+    function updateUI(){
+      const deposit = Number(depSlider.value);
+      const bonus = calculateBonus(deposit);
+      const total = deposit + bonus;
+      depVal.innerText = formatMoney(deposit);
+      totalDisplay.innerText = '$' + formatMoney(total);
+      // animate a quick pulse when values change
+      gsap.fromTo(totalDisplay, {scale:0.98}, {scale:1, duration:0.45, ease:'elastic.out(1,0.6)'});
+    }
+
+    depSlider.addEventListener('input', ()=>{
+      updateUI();
+      // subtle haptics on supporting devices
+      try{ tg?.HapticFeedback?.selectionChanged(); }catch(e){}
+    });
+
+    // ---------- Live Ticker & Testimonials (sample dynamic content) ----------
+    const ticker = document.getElementById('ticker');
+    const testimonialsEl = document.getElementById('testimonials');
+    const sampleTicker = [
+      {when:'2m', text:'Luna +$120 on Napoli vs AC (2.5 odds)'},
+      {when:'7m', text:'VIP slip: +$85 — 3/3 correct!'},
+      {when:'20m', text:'Live: Casino +200 free spins claimed'},
+    ];
+    const sampleTestimonials = [
+      {name:'Arya', text:'Followed Luna for 3 months — consistent small wins.'},
+      {name:'Mark', text:'Fast payouts and helpful support. Promo worked.'},
+      {name:'Sofia', text:'I like the honesty. Picks are realistic.'},
+    ];
+
+    function renderTicker(){
+      ticker.innerHTML = '';
+      sampleTicker.forEach(item=>{
+        const div = document.createElement('div');
+        div.className = 'flex items-center justify-between bg-white/2 p-3 rounded-lg';
+        div.innerHTML = `<div class=\"text-sm\">${item.text}</div><div class=\"text-xs text-gray-300 font-mono\">${item.when}</div>`;
+        ticker.appendChild(div);
+      })
+    }
+
+    function renderTestimonials(){
+      testimonialsEl.innerHTML = '';
+      sampleTestimonials.forEach(t=>{
+        const d = document.createElement('div');
+        d.className = 'p-3 bg-white/3 rounded-lg';
+        d.innerHTML = `<div class=\"font-bold\">${t.name}</div><div class=\"text-sm text-gray-200\">\"${t.text}\"</div>`;
+        testimonialsEl.appendChild(d);
+      })
+    }
+
+    renderTicker(); renderTestimonials();
+
+    // small live count animation
+    const liveCount = document.getElementById('liveCount');
+    let liveNum = 1240;
+    setInterval(()=>{ liveNum += Math.floor(Math.random()*3 - 1); if(liveNum<900) liveNum=900; liveCount.innerText = liveNum; }, 5000);
+
+    // ---------- CTA behavior (confetti + open affiliate link) ----------
+    function startConversion(source){
+      // source is a helpful small tag for analytics
+      // confetti burst
+      confetti({ particleCount: 140, spread: 70, origin: { y: 0.6 }, colors: ['#f472b6', '#fbbf24', '#ffffff'] });
+      try{ tg?.HapticFeedback?.notificationOccurred('success'); }catch(e){}
+
+      // animated CTA bounce
+      gsap.to('#ctaBtn', { scale: 0.96, duration: 0.08, yoyo:true, repeat:1 });
+
+      // open affiliate link after tiny delay
+      setTimeout(()=>{
+        // Open inside WebApp if available
+        if(tg){
+          try{ tg.openLink(AFFILIATE_LINK); }
+          catch(e){ window.open(AFFILIATE_LINK, '_blank'); }
+        } else {
+          window.open(AFFILIATE_LINK, '_blank');
         }
 
-        // 4. FINAL CONVERSION
-        function handleRegistration() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.8 },
-                colors: ['#ec4899', '#f59e0b', '#ffffff']
-            });
-            tg.HapticFeedback.notificationOccurred('success');
-            setTimeout(() => {
-                tg.openLink("https://1xbet.com/registration/?tag=d_YOUR_PLAYER_ID");
-            }, 800);
-        }
+        // simple analytics beacon (no external libs)
+        navigator.sendBeacon && navigator.sendBeacon('/_conv', JSON.stringify({time:Date.now(), source, aff:AFFILIATE_LINK}));
+      }, 700);
+    }
 
-        document.getElementById('finalCta').onclick = handleRegistration;
+    ctaBtn.addEventListener('click', ()=> startConversion('hero-cta'));
 
-        // Native Telegram Main Button
-        tg.MainButton.setText("JOIN LUNA & START WINNING");
-        tg.MainButton.setParams({ color: '#ec4899' });
-        tg.MainButton.show();
-        tg.MainButton.onClick(handleRegistration);
-    </script>
+    // support/contact button
+    document.getElementById('supportBtn').addEventListener('click', ()=>{
+      // open Telegram chat if on WebApp
+      if(tg){ tg.openTelegram(); } else { window.open('https://t.me/LuckyLuna_support', '_blank'); }
+    });
+
+    // demo odds & modal
+    demoOdds.addEventListener('click', ()=>{
+      // show a playful demo
+      gsap.fromTo('#ticker',{ y:20, autoAlpha:0 },{ y:0, autoAlpha:1, duration:0.6, ease:'power2.out' });
+      renderTicker();
+      window.scrollTo({ top: document.getElementById('ticker').offsetTop - 60, behavior: 'smooth' });
+    });
+
+    howItWorks.addEventListener('click', ()=>{ modal.classList.remove('hidden'); modal.classList.add('flex'); gsap.fromTo('#modal > div',{ y:20, autoAlpha:0 },{ y:0, autoAlpha:1, duration:0.4 }) });
+    closeModal.addEventListener('click', ()=>{ gsap.to('#modal > div',{ y:10, autoAlpha:0, duration:0.25, onComplete: ()=> modal.classList.add('hidden') }); });
+
+    // Keyboard escape to close modal
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && !modal.classList.contains('hidden')){ closeModal.click(); } });
+
+    // small entrance animations with GSAP timeline
+    gsap.from('header h1', { y: -20, autoAlpha:0, duration:0.8, ease:'power3.out' });
+    gsap.from('.glass', { stagger: 0.05, y: 10, autoAlpha:0, duration:0.7, ease:'power2.out' });
+
+    // initialize values
+    updateUI();
+
+    // Accessibility: ensure slider keyboard step works and semantic roles
+    depSlider.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowDown'){ depSlider.value = Math.max(Number(depSlider.min), Number(depSlider.value) - Number(depSlider.step)); updateUI(); }
+      if(e.key === 'ArrowRight' || e.key === 'ArrowUp'){ depSlider.value = Math.min(Number(depSlider.max), Number(depSlider.value) + Number(depSlider.step)); updateUI(); }
+    });
+
+    // small analytics / debug hook (prints to console only)
+    console.log('LuckyLuna landing initialized — Affiliate:', AFFILIATE_LINK);
+  </script>
 </body>
 </html>
