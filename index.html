@@ -2,254 +2,240 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna's Betting Hub | 1XBET Official Partner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LuckyLuna's Elite Hub | Official 1XBET Global Partner</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #0f172a;
-            --accent-pink: #ff2e63;
+            --deep-blue: #0f172a;
+            --elite-pink: #ff2e63;
             --gold: #d4af37;
-            --glass: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        body { 
+            background-color: var(--deep-blue); 
+            color: white; 
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--primary);
-            color: white;
-            overflow-x: hidden;
-            line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- Animations --- */
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+
+        .glass { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(45deg, #0f172a 30%, #1e293b 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-pink) 0%, transparent 20%);
-            opacity: 0.1;
-            animation: moveBg 15s linear infinite;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            z-index: 1;
-            background: linear-gradient(to right, #fff, var(--gold));
+        .gold-gradient {
+            background: linear-gradient(to right, #d4af37, #f3cf7a, #d4af37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .cta-btn {
-            background: linear-gradient(45deg, var(--gold), #f3cf7a);
-            color: var(--primary);
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            z-index: 1;
-            animation: pulse 2s infinite;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
+        /* Custom Range Slider Styling */
+        input[type='range'] { -webkit-appearance: none; background: #1e293b; border-radius: 10px; height: 8px; width: 100%; }
+        input[type='range']::-webkit-slider-thumb { 
+            -webkit-appearance: none; width: 24px; height: 24px; 
+            background: #ff2e63; border-radius: 50%; cursor: pointer; 
+            border: 3px solid white; box-shadow: 0 0 15px rgba(255, 46, 99, 0.4); 
         }
 
-        /* --- Sections --- */
-        section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-
-        .about-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
-            border-radius: 15px;
-            transition: 0.3s;
-            text-align: center;
-            border-bottom: 3px solid var(--accent-pink);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* --- Testimonials --- */
-        .testimonials {
-            background: #1e293b;
-            border-radius: 30px;
-            padding: 40px 20px;
-        }
-
-        .testimonial-slider {
-            font-style: italic;
-            color: #cbd5e1;
-        }
-
-        /* --- Step-by-Step --- */
-        .step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-
-        .step-num {
-            background: var(--accent-pink);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.8rem;
-            color: #64748b;
-            border-top: 1px solid var(--glass);
-        }
-
-        .social-icons {
-            margin: 20px 0;
-            font-size: 1.5rem;
-        }
-
-        @keyframes moveBg {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+        .nav-sticky { background: rgba(15, 23, 42, 0.9); backdrop-blur: 10px; }
     </style>
 </head>
-<body>
+<body class="antialiased overflow-x-hidden">
 
-    <section class="hero">
-        <h1>Unlock Trusted Betting Thrills with 1XBET</h1>
-        <p style="margin-bottom: 2rem; color: #e2e8f0;">Your Gateway to Premium Wins & Luxury Gaming</p>
-        <a href="YOUR_AFFILIATE_LINK" class="cta-btn" onclick="celebrate()">Join Now & Claim Bonus</a>
-    </section>
-
-    <section id="about">
-        <div class="about-card">
-            <h2 style="color: var(--gold); margin-bottom: 15px;">Welcome to Luna's Betting Hub</h2>
-            <p>We partner with 1XBET, the world's leading licensed operator, to bring you elite sports odds and a high-stakes casino experience. Fast withdrawals, 24/7 support, and thousands of events daily.</p>
-        </div>
-    </section>
-
-    <section id="features">
-        <div class="grid">
-            <div class="feature-card">
-                <h3>⚽ Sports Betting</h3>
-                <p>Global coverage of Football, Tennis, Basketball and more.</p>
-            </div>
-            <div class="feature-card">
-                <h3>💎 Live Casino</h3>
-                <p>Real dealers, real stakes. Roulette, Blackjack, and Baccarat.</p>
-            </div>
-            <div class="feature-card">
-                <h3>⚡ Fast Pay</h3>
-                <p>Instant deposits and the fastest withdrawals in the industry.</p>
+    <nav class="p-4 flex justify-between items-center nav-sticky sticky top-0 z-50 border-b border-white/5">
+        <div class="flex items-center space-x-2">
+            <div class="text-xl font-luxury font-bold tracking-tight italic">
+                <span class="text-white">Luna</span><span class="text-[#ff2e63]">Elite</span>
             </div>
         </div>
-    </section>
+        <div id="userBadge" class="hidden flex items-center space-x-2 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+            <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
+            <span id="topBarName" class="text-[10px] font-bold text-pink-400 uppercase tracking-widest italic">Member</span>
+        </div>
+    </nav>
 
-    <section id="how-it-works">
-        <h2 style="text-align: center; margin-bottom: 30px;">How to Start</h2>
-        <div class="step"><div class="step-num">1</div><p>Register via the 1XBET Link</p></div>
-        <div class="step"><div class="step-num">2</div><p>Make your first deposit (Get 100% Bonus)</p></div>
-        <div class="step"><div class="step-num">3</div><p>Place your bets and win big!</p></div>
-    </section>
-
-    <section class="testimonials">
-        <div class="testimonial-slider">
-            <p>"Luna's hub made it so easy to get started. The 1XBET app is flawless and my withdrawals are always on time!"</p>
-            <p><strong>- Sarah J., Pro Bettor</strong></p>
+    <section class="pt-12 pb-8 px-6 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-pink-600/20 blur-[100px] -z-10"></div>
+        
+        <h1 class="animate__animated animate__fadeInDown text-4xl font-luxury font-bold mb-4 leading-tight">
+            Elevate Your <span class="gold-gradient italic">Earnings</span><br>with 1XBET
+        </h1>
+        
+        <div class="flex flex-wrap justify-center gap-2 mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider text-pink-400">Up to 40% Commission</span>
+            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider text-gold-400 text-yellow-500">VIP Hybrid Deals</span>
         </div>
     </section>
 
-    <footer>
-        <p>🔞 18+ Only. Please gamble responsibly.</p>
-        <p>Affiliate Disclosure: We may earn a commission from links on this page.</p>
-        <div class="social-icons">
-            <span>📱</span> <span>📸</span> <span>🐦</span>
+    <section class="py-4 px-6">
+        <div class="glass p-8 rounded-[2rem] shadow-2xl border-t border-white/20 relative">
+            <div class="absolute -top-3 -right-3 bg-pink-600 text-[10px] font-black px-3 py-1 rounded-lg rotate-12 shadow-lg">CALCULATOR</div>
+            
+            <h3 class="text-xs font-bold mb-8 flex items-center text-gray-400 uppercase tracking-[0.3em]">
+                <span class="text-pink-500 mr-2">✦</span> Your Potential
+            </h3>
+            
+            <div class="space-y-10">
+                <div>
+                    <div class="flex justify-between mb-4">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Player Turnover</label>
+                        <span class="text-white font-mono font-bold text-lg">$<span id="revenueVal">5,000</span></span>
+                    </div>
+                    <input type="range" id="revenueSlider" min="0" max="100000" step="1" value="5000">
+                </div>
+
+                <div class="bg-gradient-to-br from-pink-600/20 to-transparent p-6 rounded-2xl border border-pink-500/20 text-center relative overflow-hidden">
+                    <p class="text-[9px] text-pink-300 uppercase font-black tracking-widest mb-1">Estimated Monthly Payout</p>
+                    <span id="payoutDisplay" class="text-5xl font-luxury font-bold text-white tracking-tighter">$1,250</span>
+                </div>
+            </div>
         </div>
-        <p>© 2025 Luna's Betting Hub. Official 1XBET Partner.</p>
-    </footer>
+    </section>
+
+    <section class="py-12 px-8">
+        <h3 class="text-[10px] font-bold mb-10 text-gray-500 uppercase tracking-[0.3em] text-center">Path to the Elite Club</h3>
+        <div class="space-y-8 relative">
+            <div class="absolute left-[15px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-pink-500/50 to-transparent"></div>
+            
+            <div class="flex items-start space-x-6 relative group">
+                <div class="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_15px_rgba(255,46,99,0.5)] z-10 transition-transform group-hover:scale-110">1</div>
+                <div>
+                    <h5 class="font-bold text-sm text-white">Secure Access</h5>
+                    <p class="text-[11px] text-gray-400">Select your region and complete the VIP form.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start space-x-6 relative group">
+                <div class="bg-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold border border-white/20 z-10">2</div>
+                <div>
+                    <h5 class="font-bold text-sm text-white">Elite Activation</h5>
+                    <p class="text-[11px] text-gray-400">Our concierge team reviews your application within 24h.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start space-x-6 relative group">
+                <div class="bg-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold border border-white/20 z-10">3</div>
+                <div>
+                    <h5 class="font-bold text-sm text-white">Wealth Generation</h5>
+                    <p class="text-[11px] text-gray-400">Receive payouts every Tuesday directly to your wallet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply-section" class="py-10 px-6 bg-slate-900/50">
+        <h3 class="text-2xl font-luxury font-bold mb-8 text-center italic">Choose Your Region</h3>
+        <div class="grid grid-cols-2 gap-4">
+            <button onclick="openForm('EN')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-pink-500 active:scale-95 transition-all">
+                <span class="text-3xl mb-2">🌍</span><span class="text-[10px] font-bold uppercase tracking-tighter">Global (EN)</span>
+            </button>
+            <button onclick="openForm('HI')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-orange-500 active:scale-95 transition-all">
+                <span class="text-3xl mb-2">🇮🇳</span><span class="text-[10px] font-bold uppercase tracking-tighter">Hindi</span>
+            </button>
+            <button onclick="openForm('TR')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-red-500 active:scale-95 transition-all col-span-2">
+                <span class="text-3xl mb-2">🇹🇷</span><span class="text-[10px] font-bold uppercase tracking-tighter">Turkey</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="py-12 px-6 pb-32">
+        <div class="glass p-8 rounded-[2.5rem] relative overflow-hidden group">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="flex items-center space-x-5 mb-6">
+                <div class="relative">
+                    <img src="https://ui-avatars.com/api/?name=Luna+Elite&background=ff2e63&color=fff&size=128" class="w-16 h-16 rounded-2xl object-cover border-2 border-pink-500 shadow-2xl">
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0f172a] rounded-full"></div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl">Luna</h4>
+                    <p class="text-[9px] text-pink-500 font-black uppercase tracking-[0.2em]">Senior Affiliate Concierge</p>
+                </div>
+            </div>
+            <p class="text-xs text-gray-400 mb-8 leading-relaxed italic">
+                "I specialize in high-volume traffic and custom **CPA + RevShare** structures. Let's build your empire."
+            </p>
+            <button id="contactLuna" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] flex justify-center items-center shadow-xl hover:bg-pink-50 transition-all active:scale-95">
+                Message Luna Directly
+            </button>
+        </div>
+    </section>
 
     <script>
-        function celebrate() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#ff2e63', '#d4af37', '#ffffff']
-            });
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.ready();
+        tg.setHeaderColor('#0f172a');
+
+        // 1. Personalization
+        const user = tg.initDataUnsafe?.user;
+        if (user && user.first_name) {
+            document.getElementById('topBarName').innerText = user.first_name;
+            document.getElementById('userBadge').classList.remove('hidden');
         }
 
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
+        // 2. Calculator Logic
+        const revSlider = document.getElementById('revenueSlider');
+        const revVal = document.getElementById('revenueVal');
+        const payoutDisplay = document.getElementById('payoutDisplay');
+
+        function updateCalc() {
+            const revenue = parseInt(revSlider.value);
+            const rate = 0.25; // Base 25% for elite hub
+            const result = revenue * rate;
+            
+            revVal.innerText = revenue.toLocaleString();
+            payoutDisplay.innerText = '$' + Math.floor(result).toLocaleString();
+        }
+
+        revSlider.oninput = () => { 
+            updateCalc(); 
+            tg.HapticFeedback.selectionChanged(); 
+        };
+
+        // 3. Global Form Redirect
+        window.openForm = function(lang) {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.8 }, colors: ['#ff2e63', '#d4af37'] });
+            tg.HapticFeedback.notificationOccurred('success');
+            
+            // Placeholder URLs
+            const urls = {
+                'EN': "https://1xbet.com/en/affiliates",
+                'HI': "https://1xbet.com/hi/affiliates",
+                'TR': "https://1xbet.com/tr/affiliates"
+            };
+            
+            setTimeout(() => tg.openLink(urls[lang] || urls['EN']), 500);
+        };
+
+        // 4. Contact Logic
+        document.getElementById('contactLuna').onclick = () => {
+            tg.HapticFeedback.impactOccurred('heavy');
+            const handle = "Your_Telegram_Handle"; // UPDATE THIS
+            tg.openTelegramLink(`https://t.me/${handle}`);
+        };
+
+        // 5. Native Main Button
+        tg.MainButton.setText("APPLY FOR ELITE STATUS");
+        tg.MainButton.setParams({ color: '#ff2e63', text_color: '#ffffff' });
+        tg.MainButton.show();
+        tg.MainButton.onClick(() => {
+            document.getElementById('apply-section').scrollIntoView({ behavior: 'smooth' });
+            tg.HapticFeedback.impactOccurred('medium');
         });
 
-        document.querySelectorAll('.feature-card').forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = '0.6s ease-out';
-            observer.observe(el);
-        });
+        updateCalc();
     </script>
 </body>
 </html>
