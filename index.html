@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LuckyLuna's Elite Hub | Official 1XBET Global Partner</title>
+    <title>LuckyLuna x 1XBET | Your VIP Entry</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -14,8 +14,8 @@
     <style>
         :root {
             --deep-blue: #0f172a;
-            --elite-pink: #ff2e63;
-            --gold: #d4af37;
+            --hot-pink: #f472b6;
+            --gold: #fbbf24;
         }
 
         body { 
@@ -28,149 +28,129 @@
         .font-luxury { font-family: 'Playfair Display', serif; }
 
         .glass { 
-            background: rgba(255, 255, 255, 0.03); 
+            background: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(15px); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
         }
 
-        .gold-gradient {
-            background: linear-gradient(to right, #d4af37, #f3cf7a, #d4af37);
+        .gold-shimmer {
+            background: linear-gradient(90deg, #fbbf24, #fff9e6, #fbbf24);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
         }
 
-        /* Custom Range Slider Styling */
-        input[type='range'] { -webkit-appearance: none; background: #1e293b; border-radius: 10px; height: 8px; width: 100%; }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        input[type='range'] { -webkit-appearance: none; background: #1e293b; border-radius: 10px; height: 10px; width: 100%; }
         input[type='range']::-webkit-slider-thumb { 
-            -webkit-appearance: none; width: 24px; height: 24px; 
-            background: #ff2e63; border-radius: 50%; cursor: pointer; 
-            border: 3px solid white; box-shadow: 0 0 15px rgba(255, 46, 99, 0.4); 
+            -webkit-appearance: none; width: 28px; height: 28px; 
+            background: #f472b6; border-radius: 50%; border: 3px solid white; 
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.6); 
         }
-
-        .nav-sticky { background: rgba(15, 23, 42, 0.9); backdrop-blur: 10px; }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
-    <nav class="p-4 flex justify-between items-center nav-sticky sticky top-0 z-50 border-b border-white/5">
+    <nav class="p-4 flex justify-between items-center bg-[#0f172a]/90 backdrop-blur-md sticky top-0 z-50 border-b border-pink-500/20">
         <div class="flex items-center space-x-2">
             <div class="text-xl font-luxury font-bold tracking-tight italic">
-                <span class="text-white">Luna</span><span class="text-[#ff2e63]">Elite</span>
+                <span class="text-white">Lucky</span><span class="text-pink-400">Luna</span>
             </div>
         </div>
-        <div id="userBadge" class="hidden flex items-center space-x-2 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
-            <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
-            <span id="topBarName" class="text-[10px] font-bold text-pink-400 uppercase tracking-widest italic">Member</span>
+        <div class="bg-yellow-500/10 px-3 py-1 rounded-full border border-yellow-500/30">
+            <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">PROMO: LUNA1X</span>
         </div>
     </nav>
 
-    <section class="pt-12 pb-8 px-6 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-pink-600/20 blur-[100px] -z-10"></div>
+    <section class="pt-10 pb-6 px-6 text-center relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-pink-600/10 to-transparent -z-10"></div>
         
-        <h1 class="animate__animated animate__fadeInDown text-4xl font-luxury font-bold mb-4 leading-tight">
-            Elevate Your <span class="gold-gradient italic">Earnings</span><br>with 1XBET
+        <h1 class="animate__animated animate__zoomIn text-4xl font-luxury font-bold mb-4">
+            Play Like a <span class="gold-shimmer">Queen</span>, Win Like a Pro
         </h1>
-        
-        <div class="flex flex-wrap justify-center gap-2 mb-8 animate__animated animate__fadeInUp animate__delay-1s">
-            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider text-pink-400">Up to 40% Commission</span>
-            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider text-gold-400 text-yellow-500">VIP Hybrid Deals</span>
-        </div>
+        <p class="text-gray-400 text-sm mb-8 animate__animated animate__fadeIn animate__delay-1s">
+            Join the world’s most trusted betting platform with 1XBET.
+        </p>
     </section>
 
     <section class="py-4 px-6">
-        <div class="glass p-8 rounded-[2rem] shadow-2xl border-t border-white/20 relative">
-            <div class="absolute -top-3 -right-3 bg-pink-600 text-[10px] font-black px-3 py-1 rounded-lg rotate-12 shadow-lg">CALCULATOR</div>
+        <div class="glass p-8 rounded-[2.5rem] shadow-2xl relative border-t border-white/20">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-pink-500 text-[10px] font-black px-4 py-1 rounded-full shadow-lg">
+                100% WELCOME BONUS
+            </div>
             
-            <h3 class="text-xs font-bold mb-8 flex items-center text-gray-400 uppercase tracking-[0.3em]">
-                <span class="text-pink-500 mr-2">✦</span> Your Potential
-            </h3>
+            <h3 class="text-center text-xs font-bold mb-8 text-gray-400 uppercase tracking-[0.2em]">Calculate Your Starting Balance</h3>
             
             <div class="space-y-10">
                 <div>
                     <div class="flex justify-between mb-4">
-                        <label class="text-[10px] font-bold text-gray-400 uppercase">Player Turnover</label>
-                        <span class="text-white font-mono font-bold text-lg">$<span id="revenueVal">5,000</span></span>
+                        <label class="text-[10px] font-bold text-pink-300 uppercase">Your First Deposit</label>
+                        <span class="text-white font-mono font-bold text-2xl">$<span id="depositVal">100</span></span>
                     </div>
-                    <input type="range" id="revenueSlider" min="0" max="100000" step="1" value="5000">
+                    <input type="range" id="depositSlider" min="10" max="1000" step="10" value="100">
                 </div>
 
-                <div class="bg-gradient-to-br from-pink-600/20 to-transparent p-6 rounded-2xl border border-pink-500/20 text-center relative overflow-hidden">
-                    <p class="text-[9px] text-pink-300 uppercase font-black tracking-widest mb-1">Estimated Monthly Payout</p>
-                    <span id="payoutDisplay" class="text-5xl font-luxury font-bold text-white tracking-tighter">$1,250</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-12 px-8">
-        <h3 class="text-[10px] font-bold mb-10 text-gray-500 uppercase tracking-[0.3em] text-center">Path to the Elite Club</h3>
-        <div class="space-y-8 relative">
-            <div class="absolute left-[15px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-pink-500/50 to-transparent"></div>
-            
-            <div class="flex items-start space-x-6 relative group">
-                <div class="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_15px_rgba(255,46,99,0.5)] z-10 transition-transform group-hover:scale-110">1</div>
-                <div>
-                    <h5 class="font-bold text-sm text-white">Secure Access</h5>
-                    <p class="text-[11px] text-gray-400">Select your region and complete the VIP form.</p>
-                </div>
-            </div>
-
-            <div class="flex items-start space-x-6 relative group">
-                <div class="bg-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold border border-white/20 z-10">2</div>
-                <div>
-                    <h5 class="font-bold text-sm text-white">Elite Activation</h5>
-                    <p class="text-[11px] text-gray-400">Our concierge team reviews your application within 24h.</p>
-                </div>
-            </div>
-
-            <div class="flex items-start space-x-6 relative group">
-                <div class="bg-white/10 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold border border-white/20 z-10">3</div>
-                <div>
-                    <h5 class="font-bold text-sm text-white">Wealth Generation</h5>
-                    <p class="text-[11px] text-gray-400">Receive payouts every Tuesday directly to your wallet.</p>
+                <div class="bg-white/5 rounded-3xl p-6 border border-white/10 text-center">
+                    <p class="text-[9px] text-gray-400 uppercase font-black tracking-widest mb-2">Total to Play With</p>
+                    <span id="totalDisplay" class="text-5xl font-luxury font-bold text-pink-400">$200</span>
+                    <p class="text-[10px] text-yellow-500 mt-2 font-bold">+ 150 FREE SPINS 🎰</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="apply-section" class="py-10 px-6 bg-slate-900/50">
-        <h3 class="text-2xl font-luxury font-bold mb-8 text-center italic">Choose Your Region</h3>
+    <section class="py-12 px-6">
+        <h3 class="text-center text-[10px] font-bold mb-8 text-gray-500 uppercase tracking-[0.4em]">Why LuckyLuna Trust 1XBET</h3>
         <div class="grid grid-cols-2 gap-4">
-            <button onclick="openForm('EN')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-pink-500 active:scale-95 transition-all">
-                <span class="text-3xl mb-2">🌍</span><span class="text-[10px] font-bold uppercase tracking-tighter">Global (EN)</span>
-            </button>
-            <button onclick="openForm('HI')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-orange-500 active:scale-95 transition-all">
-                <span class="text-3xl mb-2">🇮🇳</span><span class="text-[10px] font-bold uppercase tracking-tighter">Hindi</span>
-            </button>
-            <button onclick="openForm('TR')" class="glass p-6 rounded-2xl flex flex-col items-center border-b-2 border-b-red-500 active:scale-95 transition-all col-span-2">
-                <span class="text-3xl mb-2">🇹🇷</span><span class="text-[10px] font-bold uppercase tracking-tighter">Turkey</span>
+            <div class="glass p-5 rounded-2xl text-center">
+                <span class="text-2xl mb-2 block">⚡</span>
+                <h5 class="text-[10px] font-bold uppercase">Fast Payouts</h5>
+            </div>
+            <div class="glass p-5 rounded-2xl text-center">
+                <span class="text-2xl mb-2 block">🛡️</span>
+                <h5 class="text-[10px] font-bold uppercase">Fully Licensed</h5>
+            </div>
+            <div class="glass p-5 rounded-2xl text-center">
+                <span class="text-2xl mb-2 block">⚽</span>
+                <h5 class="text-[10px] font-bold uppercase">1000+ Events</h5>
+            </div>
+            <div class="glass p-5 rounded-2xl text-center">
+                <span class="text-2xl mb-2 block">💎</span>
+                <h5 class="text-[10px] font-bold uppercase">VIP Loyalty</h5>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-8 px-6 pb-32">
+        <div class="glass p-6 rounded-[2rem] border-l-4 border-pink-500 relative">
+            <div class="flex items-center space-x-4 mb-4">
+                <img src="https://ui-avatars.com/api/?name=Lucky+Luna&background=f472b6&color=fff" class="w-12 h-12 rounded-full border-2 border-pink-400">
+                <div>
+                    <h4 class="font-bold text-sm italic">Luna's Private Circle</h4>
+                    <p class="text-[9px] text-green-400 font-bold uppercase">🟢 1,240 Players Online</p>
+                </div>
+            </div>
+            <p class="text-xs text-gray-400 italic mb-6">
+                "I only play where I can win. 1XBET has the best odds for my daily picks. Join me and let's win together!"
+            </p>
+            <button id="registerBtn" class="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs shadow-lg active:scale-95 transition-all">
+                Create Account & Claim Bonus
             </button>
         </div>
     </section>
 
-    <section class="py-12 px-6 pb-32">
-        <div class="glass p-8 rounded-[2.5rem] relative overflow-hidden group">
-            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            </div>
-            <div class="flex items-center space-x-5 mb-6">
-                <div class="relative">
-                    <img src="https://ui-avatars.com/api/?name=Luna+Elite&background=ff2e63&color=fff&size=128" class="w-16 h-16 rounded-2xl object-cover border-2 border-pink-500 shadow-2xl">
-                    <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-[#0f172a] rounded-full"></div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xl">Luna</h4>
-                    <p class="text-[9px] text-pink-500 font-black uppercase tracking-[0.2em]">Senior Affiliate Concierge</p>
-                </div>
-            </div>
-            <p class="text-xs text-gray-400 mb-8 leading-relaxed italic">
-                "I specialize in high-volume traffic and custom **CPA + RevShare** structures. Let's build your empire."
-            </p>
-            <button id="contactLuna" class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] flex justify-center items-center shadow-xl hover:bg-pink-50 transition-all active:scale-95">
-                Message Luna Directly
-            </button>
+    <footer class="px-6 py-10 text-center border-t border-white/5">
+        <p class="text-[10px] text-gray-500 mb-4">🔞 Play Responsibly. 1XBET is a licensed operator.</p>
+        <div class="flex justify-center space-x-6 text-gray-600 text-[10px] font-bold">
+            <span>TERMS</span>
+            <span>PRIVACY</span>
+            <span>SUPPORT</span>
         </div>
-    </section>
+    </footer>
 
     <script>
         const tg = window.Telegram.WebApp;
@@ -178,64 +158,49 @@
         tg.ready();
         tg.setHeaderColor('#0f172a');
 
-        // 1. Personalization
-        const user = tg.initDataUnsafe?.user;
-        if (user && user.first_name) {
-            document.getElementById('topBarName').innerText = user.first_name;
-            document.getElementById('userBadge').classList.remove('hidden');
+        // Calculator Logic
+        const depSlider = document.getElementById('depositSlider');
+        const depVal = document.getElementById('depositVal');
+        const totalDisplay = document.getElementById('totalDisplay');
+
+        function updateBonus() {
+            const deposit = parseInt(depSlider.value);
+            const total = deposit * 2; // 100% Match
+            depVal.innerText = deposit.toLocaleString();
+            totalDisplay.innerText = '$' + total.toLocaleString();
         }
 
-        // 2. Calculator Logic
-        const revSlider = document.getElementById('revenueSlider');
-        const revVal = document.getElementById('revenueVal');
-        const payoutDisplay = document.getElementById('payoutDisplay');
-
-        function updateCalc() {
-            const revenue = parseInt(revSlider.value);
-            const rate = 0.25; // Base 25% for elite hub
-            const result = revenue * rate;
-            
-            revVal.innerText = revenue.toLocaleString();
-            payoutDisplay.innerText = '$' + Math.floor(result).toLocaleString();
-        }
-
-        revSlider.oninput = () => { 
-            updateCalc(); 
+        depSlider.oninput = () => { 
+            updateBonus(); 
             tg.HapticFeedback.selectionChanged(); 
         };
 
-        // 3. Global Form Redirect
-        window.openForm = function(lang) {
-            confetti({ particleCount: 100, spread: 70, origin: { y: 0.8 }, colors: ['#ff2e63', '#d4af37'] });
+        // Confetti & Redirect
+        function triggerConversion() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#f472b6', '#fbbf24', '#ffffff']
+            });
+            
             tg.HapticFeedback.notificationOccurred('success');
             
-            // Placeholder URLs
-            const urls = {
-                'EN': "https://1xbet.com/en/affiliates",
-                'HI': "https://1xbet.com/hi/affiliates",
-                'TR': "https://1xbet.com/tr/affiliates"
-            };
-            
-            setTimeout(() => tg.openLink(urls[lang] || urls['EN']), 500);
-        };
+            setTimeout(() => {
+                // YOUR AFFILIATE LINK HERE
+                tg.openLink("https://1xbet.com/registration"); 
+            }, 800);
+        }
 
-        // 4. Contact Logic
-        document.getElementById('contactLuna').onclick = () => {
-            tg.HapticFeedback.impactOccurred('heavy');
-            const handle = "Your_Telegram_Handle"; // UPDATE THIS
-            tg.openTelegramLink(`https://t.me/${handle}`);
-        };
+        document.getElementById('registerBtn').onclick = triggerConversion;
 
-        // 5. Native Main Button
-        tg.MainButton.setText("APPLY FOR ELITE STATUS");
-        tg.MainButton.setParams({ color: '#ff2e63', text_color: '#ffffff' });
+        // Native Telegram Main Button
+        tg.MainButton.setText("CLAIM MY 100% BONUS NOW");
+        tg.MainButton.setParams({ color: '#f472b6', text_color: '#ffffff' });
         tg.MainButton.show();
-        tg.MainButton.onClick(() => {
-            document.getElementById('apply-section').scrollIntoView({ behavior: 'smooth' });
-            tg.HapticFeedback.impactOccurred('medium');
-        });
+        tg.MainButton.onClick(triggerConversion);
 
-        updateCalc();
+        updateBonus();
     </script>
 </body>
 </html>
