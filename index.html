@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LuckyLuna x 1XBET | VIP Portal</title>
+    <title>LuckyLuna x 1XBET | The Full Package</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root { --p: #0f172a; --s: #ec4899; --g: #f59e0b; }
@@ -18,188 +18,133 @@
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .gold-shimmer { background: linear-gradient(90deg, #f59e0b, #fffbeb, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; background-size: 200% auto; }
         @keyframes shine { to { background-position: 200% center; } }
+        .step-active { border-left: 4px solid var(--s); background: rgba(236, 72, 153, 0.1); }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .open .accordion-content { max-height: 1000px; }
-        
-        /* Prediction Card Specifics */
-        .vs-badge { background: linear-gradient(135deg, #1e293b, #0f172a); box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
     </style>
 </head>
-<body class="antialiased select-none pb-32">
+<body class="antialiased">
 
-    <div class="fixed top-5 right-4 z-[100] animate__animated animate__fadeInRight animate__delay-1s">
-        <div class="glass p-1 rounded-full flex space-x-1 border border-pink-500/30 shadow-lg">
-            <button id="setUSD" class="px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500 transition-all">USD</button>
-            <button id="setAMD" class="px-3 py-1 rounded-full text-[10px] font-bold text-gray-400 transition-all">AMD</button>
+    <div class="fixed top-20 right-4 z-[100]">
+        <div class="glass p-1 rounded-full flex space-x-1 border border-pink-500/30">
+            <button id="setUSD" class="px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500">USD</button>
+            <button id="setAMD" class="px-3 py-1 rounded-full text-[10px] font-bold text-gray-400">AMD</button>
         </div>
     </div>
 
-    <nav class="p-6 pt-8">
+    <nav class="p-5 flex justify-between items-center bg-[#0f172a]/90 sticky top-0 z-50 border-b border-white/5">
         <div class="flex flex-col">
-            <span class="font-header text-2xl tracking-widest gold-shimmer">LuckyLuna</span>
-            <span class="text-[8px] uppercase tracking-[0.3em] text-pink-400 font-bold">Verified 1XBET Elite Partner</span>
+            <span class="font-header text-xl tracking-widest gold-shimmer">LuckyLuna</span>
+            <span class="text-[8px] uppercase tracking-[0.3em] text-pink-400 font-bold">Verified 1XBET Offer</span>
         </div>
     </nav>
 
-    <section class="px-6 mb-10">
-        <h1 class="text-4xl font-header font-black mb-6 leading-tight animate__animated animate__fadeInLeft">
-            Your <span class="text-pink-500">Grand</span><br>
-            <span class="gold-shimmer">Welcome Package</span>
-        </h1>
-        <div class="inline-flex items-center glass px-6 py-4 rounded-[2rem] border-l-4 border-pink-500 shadow-2xl animate__animated animate__zoomIn">
-            <div>
-                <span class="text-3xl font-black text-white block leading-none mb-1" id="mainTotal">~ $2,360</span>
-                <span class="text-[10px] uppercase tracking-widest text-pink-400 font-bold">+ 150 Free Spins Included</span>
-            </div>
+    <section class="py-10 px-8 text-center">
+        <h1 class="text-4xl font-header font-bold mb-4">Welcome <br><span class="gold-shimmer">Grand Package</span></h1>
+        <div class="inline-block glass px-6 py-3 rounded-2xl border-pink-500/20">
+            <span class="text-2xl font-black text-white" id="mainTotal">~ $2,360</span>
+            <span class="block text-[10px] uppercase tracking-widest text-pink-500 font-bold">+ 150 Free Spins</span>
         </div>
     </section>
 
-    <section class="px-6 mb-14 animate__animated animate__fadeInUp animate__delay-1s">
-        <div class="flex items-center justify-between mb-4">
-             <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em]">Luna's Insider Edge</h3>
-             <div class="flex items-center space-x-2">
-                 <span class="relative flex h-2 w-2">
-                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                   <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
-                 </span>
-                 <span class="text-[9px] font-bold text-pink-400 uppercase">Today's Hot Pick</span>
-             </div>
-        </div>
-
-        <div class="glass p-1 rounded-[2.5rem] border-t border-pink-500/50 relative overflow-hidden shadow-[0_10px_40px_-10px_rgba(236,72,153,0.3)]">
-            <div class="absolute -right-12 -top-12 text-[120px] opacity-[0.03] rotate-12 select-none pointer-events-none">⚽</div>
-            
-            <div class="bg-[#0f172a]/80 rounded-[2.3rem] p-6 backdrop-blur-md">
-                <div class="flex justify-between items-center mb-6">
-                    <div class="text-center flex-1">
-                        <div class="w-14 h-14 vs-badge rounded-2xl flex items-center justify-center mb-3 text-3xl shadow-lg mx-auto border border-white/5" id="t1Icon">🔵</div>
-                        <p class="text-[10px] font-black uppercase tracking-tight" id="t1Name">Man City</p>
-                    </div>
-                    <div class="text-lg font-black text-gray-600 italic px-2">VS</div>
-                    <div class="text-center flex-1">
-                        <div class="w-14 h-14 vs-badge rounded-2xl flex items-center justify-center mb-3 text-3xl shadow-lg mx-auto border border-white/5" id="t2Icon">🔴</div>
-                        <p class="text-[10px] font-black uppercase tracking-tight" id="t2Name">Arsenal</p>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 rounded-3xl flex justify-between items-center border border-white/10 mb-6 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
-                    <div>
-                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1 tracking-wider">Luna Recommends:</p>
-                        <p class="text-sm font-bold text-white leading-tight" id="predText">Home Win & Over 2.5 Goals</p>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1 tracking-wider">Live Odds:</p>
-                        <p class="text-4xl font-header font-black gold-shimmer leading-none" id="predOdds">2.45</p>
-                    </div>
-                </div>
-
-                <button id="betTipBtn" class="w-full bg-white/5 hover:bg-white/10 text-white py-4 rounded-2xl font-bold uppercase tracking-[0.2em] text-[10px] border border-white/10 transition-all active:scale-95 flex items-center justify-center space-x-2 group">
-                    <span>Place This Bet</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </button>
-            </div>
-        </div>
-    </section>
-    <section class="px-6 mb-14">
+    <section class="px-6 mb-12">
         <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">How to Claim Your Wealth</h3>
         <div class="space-y-4">
-            <div class="glass p-5 rounded-3xl flex items-center space-x-5 border-l-4 border-pink-500">
-                <div class="bg-pink-500 text-white w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg shadow-pink-500/20">1</div>
+            <div class="glass p-5 rounded-2xl flex items-start space-x-4 border-l-4 border-pink-500">
+                <div class="bg-pink-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">1</div>
                 <div>
                     <p class="font-bold text-sm">Register & Verify</p>
-                    <p class="text-[10px] text-gray-400 leading-tight">Fill profile + activate phone number.</p>
+                    <p class="text-[10px] text-gray-400">Fill your profile and activate your phone number. This is mandatory!</p>
                 </div>
             </div>
-            <div class="glass p-5 rounded-3xl flex items-center space-x-5 opacity-80">
-                <div class="bg-slate-700 text-white w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold border border-white/10">2</div>
+            <div class="glass p-5 rounded-2xl flex items-start space-x-4">
+                <div class="bg-gray-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">2</div>
                 <div>
                     <p class="font-bold text-sm">Opt-In</p>
-                    <p class="text-[10px] text-gray-400 leading-tight">Select "Casino" or "Sports" bonus in settings.</p>
+                    <p class="text-[10px] text-gray-400">Go to Account Settings and select "Casino Bonus" or "Sports Bonus".</p>
                 </div>
             </div>
-            <div class="glass p-5 rounded-3xl flex items-center space-x-5 opacity-80">
-                <div class="bg-slate-700 text-white w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold border border-white/10">3</div>
+            <div class="glass p-5 rounded-2xl flex items-start space-x-4">
+                <div class="bg-gray-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">3</div>
                 <div>
                     <p class="font-bold text-sm">First Deposit</p>
-                    <p class="text-[10px] text-gray-400 leading-tight">Deposit <span class="val-minDep1 text-pink-400 font-bold">$10.50</span>+. Bonus is automatic.</p>
+                    <p class="text-[10px] text-gray-400">Deposit at least <span class="val-minDep1">$10.50</span>. Bonus is automatic!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="px-6 mb-14">
+    <section class="px-6 mb-12">
         <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Bonus Breakdown</h3>
         <div class="grid grid-cols-2 gap-3">
-            <div class="glass p-5 rounded-[2rem] text-center border-t-2 border-pink-500 shadow-[0_-10px_30px_-15px_rgba(236,72,153,0.3)] relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-pink-500/10 to-transparent"></div>
-                <p class="text-[9px] font-black text-pink-400 mb-1 uppercase tracking-wider relative z-10">1st Deposit</p>
-                <p class="text-2xl font-header font-black relative z-10">100%</p>
-                <p class="text-[10px] text-gray-300 relative z-10">Max: <span class="val-max1 font-bold">$470</span></p>
-                <div class="mt-3 bg-yellow-500/20 text-yellow-400 text-[9px] font-black py-1 px-3 rounded-full inline-block border border-yellow-500/30 relative z-10">+ 30 FS 🎰</div>
+            <div class="glass p-4 rounded-3xl text-center border-t border-pink-500/30">
+                <p class="text-[9px] font-bold text-pink-500 mb-1">1ST DEPOSIT</p>
+                <p class="text-lg font-bold">100%</p>
+                <p class="text-[10px] text-gray-400">Up to <span class="val-max1">$470</span></p>
+                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 30 FS</p>
             </div>
-            <div class="glass p-5 rounded-[2rem] text-center relative overflow-hidden opacity-90">
-                 <p class="text-[9px] font-black text-gray-400 mb-1 uppercase tracking-wider">2nd Deposit</p>
-                <p class="text-xl font-header font-bold">50%</p>
-                <p class="text-[10px] text-gray-400">Max: <span class="val-max2">$525</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500 opacity-70">+ 35 FS</p>
+            <div class="glass p-4 rounded-3xl text-center">
+                <p class="text-[9px] font-bold text-pink-500 mb-1">2ND DEPOSIT</p>
+                <p class="text-lg font-bold">50%</p>
+                <p class="text-[10px] text-gray-400">Up to <span class="val-max2">$525</span></p>
+                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 35 FS</p>
             </div>
-             <div class="glass p-5 rounded-[2rem] text-center relative overflow-hidden opacity-90">
-                 <p class="text-[9px] font-black text-gray-400 mb-1 uppercase tracking-wider">3rd Deposit</p>
-                <p class="text-xl font-header font-bold">25%</p>
-                <p class="text-[10px] text-gray-400">Max: <span class="val-max3">$655</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500 opacity-70">+ 40 FS</p>
+            <div class="glass p-4 rounded-3xl text-center">
+                <p class="text-[9px] font-bold text-pink-500 mb-1">3RD DEPOSIT</p>
+                <p class="text-lg font-bold">25%</p>
+                <p class="text-[10px] text-gray-400">Up to <span class="val-max3">$655</span></p>
+                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 40 FS</p>
             </div>
-             <div class="glass p-5 rounded-[2rem] text-center relative overflow-hidden opacity-90">
-                 <p class="text-[9px] font-black text-gray-400 mb-1 uppercase tracking-wider">4th Deposit</p>
-                <p class="text-xl font-header font-bold">25%</p>
-                <p class="text-[10px] text-gray-400">Max: <span class="val-max4">$710</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500 opacity-70">+ 45 FS</p>
+            <div class="glass p-4 rounded-3xl text-center">
+                <p class="text-[9px] font-bold text-pink-500 mb-1">4TH DEPOSIT</p>
+                <p class="text-lg font-bold">25%</p>
+                <p class="text-[10px] text-gray-400">Up to <span class="val-max4">$710</span></p>
+                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 45 FS</p>
             </div>
         </div>
     </section>
 
-    <section class="px-6 mb-10">
+    <section class="px-6 mb-32">
         <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Terms & Conditions</h3>
-        <div class="space-y-3">
-            <div class="glass rounded-3xl overflow-hidden" onclick="this.classList.toggle('open'); tg.HapticFeedback.selectionChanged();">
-                <div class="p-5 flex justify-between items-center cursor-pointer bg-white/5">
-                    <span class="text-xs font-bold uppercase tracking-widest flex items-center"><span class="text-lg mr-2">🎰</span> Casino Rules</span>
-                    <span class="text-pink-500 text-xl font-thin transition-transform duration-300 transform rotate-0">+</span>
+        
+        <div class="space-y-2">
+            <div class="glass rounded-2xl overflow-hidden" onclick="this.classList.toggle('open')">
+                <div class="p-5 flex justify-between items-center cursor-pointer">
+                    <span class="text-xs font-bold uppercase tracking-widest">🎰 Casino Rules</span>
+                    <span class="text-pink-500">+</span>
                 </div>
-                <div class="accordion-content bg-[#0a0f1d]">
-                    <div class="p-6 text-[10px] text-gray-400 space-y-4 leading-relaxed border-t border-white/5">
-                        <p><b class="text-white">• Wagering:</b> x35 times the bonus amount within 7 days.</p>
-                        <p><b class="text-white">• Max Bet:</b> Not more than <span class="val-maxBet text-pink-400 font-bold">$5.20</span> while wagering.</p>
-                        <p><b class="text-white">• 1xGames Hack:</b> Bets in 1xGames section count TWICE towards wagering (except Blackjack/Roulette).</p>
-                        <p><b class="text-white">• The FS Games:</b> Reliquary of Ra (1st/2nd dep), Juicy Fruits (3rd), Rich of the Mermaid (4th).</p>
-                        <p class="text-red-400 italic">• <b>Important:</b> Crypto accounts are excluded from all bonuses.</p>
+                <div class="accordion-content bg-black/20">
+                    <div class="p-5 text-[10px] text-gray-400 space-y-3 leading-relaxed">
+                        <p>• <b>Wagering:</b> x35 within 7 days.</p>
+                        <p>• <b>Max Bet:</b> <span class="val-maxBet">$5.20</span> while wagering.</p>
+                        <p>• <b>1xGames Bonus:</b> Bets in 1xGames section count TWICE (except Blackjack).</p>
+                        <p>• <b>FS Games:</b> Reliquary of Ra (1st/2nd), Juicy Fruits (3rd), Rich of the Mermaid (4th).</p>
+                        <p>• <b>Restriction:</b> Crypto accounts (BTC, ETH, etc.) are excluded from bonuses.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="glass rounded-3xl overflow-hidden" onclick="this.classList.toggle('open'); tg.HapticFeedback.selectionChanged();">
-                <div class="p-5 flex justify-between items-center cursor-pointer bg-white/5">
-                    <span class="text-xs font-bold uppercase tracking-widest flex items-center"><span class="text-lg mr-2">⚽</span> Sports Rules (Alternative)</span>
-                    <span class="text-pink-500 text-xl font-thin transition-transform duration-300 transform rotate-0">+</span>
+            <div class="glass rounded-2xl overflow-hidden" onclick="this.classList.toggle('open')">
+                <div class="p-5 flex justify-between items-center cursor-pointer">
+                    <span class="text-xs font-bold uppercase tracking-widest">⚽ Sports Rules (100% Bonus)</span>
+                    <span class="text-pink-500">+</span>
                 </div>
-                <div class="accordion-content bg-[#0a0f1d]">
-                    <div class="p-6 text-[10px] text-gray-400 space-y-4 leading-relaxed border-t border-white/5">
-                        <p>If you choose Sports instead of Casino:</p>
-                        <p><b class="text-white">• Max Bonus:</b> 100% up to <span class="val-sportMax text-pink-400 font-bold">$157</span>.</p>
-                        <p><b class="text-white">• Min Deposit:</b> Just <span class="val-sportMin text-pink-400 font-bold">$1.10</span>.</p>
-                        <p><b class="text-white">• Wagering:</b> 5x the bonus amount in Accumulator bets.</p>
-                        <p><b class="text-white">• Acca Rules:</b> Each accumulator must have 3+ events with odds of 1.40 or higher.</p>
+                <div class="accordion-content bg-black/20">
+                    <div class="p-5 text-[10px] text-gray-400 space-y-3 leading-relaxed">
+                        <p>• <b>Max Bonus:</b> <span class="val-sportMax">$157</span> (60,000 AMD).</p>
+                        <p>• <b>Min Deposit:</b> <span class="val-sportMin">$1.10</span> (420 AMD).</p>
+                        <p>• <b>Wagering:</b> 5x in Accumulator bets.</p>
+                        <p>• <b>Odds:</b> Each Acca needs 3+ events with odds 1.40 or higher.</p>
+                        <p>• <b>Validity:</b> Use within 30 days of registration.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="fixed bottom-0 left-0 w-full p-5 pb-8 bg-gradient-to-t from-[#0f172a] via-[#0f172a] to-transparent z-[60]">
-        <button id="claimNow" class="w-full bg-gradient-to-r from-pink-500 to-pink-700 py-5 rounded-[2rem] font-black uppercase tracking-[0.2em] text-sm shadow-[0_10px_40px_rgba(236,72,153,0.5)] animate__animated animate__pulse animate__infinite relative overflow-hidden group">
-            <span class="relative z-10">Start Winning Now</span>
-            <div class="absolute top-0 left-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+    <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent z-[60]">
+        <button id="claimNow" class="w-full bg-gradient-to-r from-pink-500 to-pink-700 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-[0_20px_50px_rgba(236,72,153,0.4)] animate__animated animate__pulse animate__infinite">
+            Start Winning Now
         </button>
     </div>
 
@@ -207,75 +152,53 @@
         const tg = window.Telegram.WebApp;
         tg.expand();
         tg.ready();
-        tg.setHeaderColor('#0f172a');
 
-        // --- 1. CURRENCY LOGIC ---
         const data = {
-            usd: { total: "~ $2,360", min1: "$10.50", max1: "$470", max2: "$525", max3: "$655", max4: "$710", mBet: "$5.20", sMax: "$157", sMin: "$1.10" },
-            amd: { total: "900,000 AMD", min1: "4,000 AMD", max1: "180,000 AMD", max2: "200,000 AMD", max3: "250,000 AMD", max4: "270,000 AMD", mBet: "2,000 AMD", sMax: "60,000 AMD", sMin: "420 AMD" }
+            usd: {
+                total: "~ $2,360",
+                min1: "$10.50",
+                max1: "$470", max2: "$525", max3: "$655", max4: "$710",
+                mBet: "$5.20",
+                sMax: "$157", sMin: "$1.10"
+            },
+            amd: {
+                total: "900,000 AMD",
+                min1: "4,000 AMD",
+                max1: "180,000 AMD", max2: "200,000 AMD", max3: "250,000 AMD", max4: "270,000 AMD",
+                mBet: "2,000 AMD",
+                sMax: "60,000 AMD", sMin: "420 AMD"
+            }
         };
 
         function updateCurrency(mode) {
-            const c = data[mode];
-            document.getElementById('mainTotal').innerText = c.total;
-            document.querySelectorAll('.val-minDep1').forEach(e => e.innerText = c.min1);
-            document.querySelectorAll('.val-max1').forEach(e => e.innerText = c.max1);
-            document.querySelectorAll('.val-max2').forEach(e => e.innerText = c.max2);
-            document.querySelectorAll('.val-max3').forEach(e => e.innerText = c.max3);
-            document.querySelectorAll('.val-max4').forEach(e => e.innerText = c.max4);
-            document.querySelectorAll('.val-maxBet').forEach(e => e.innerText = c.mBet);
-            document.querySelectorAll('.val-sportMax').forEach(e => e.innerText = c.sMax);
-            document.querySelectorAll('.val-sportMin').forEach(e => e.innerText = c.sMin);
+            const currency = data[mode];
+            document.getElementById('mainTotal').innerText = currency.total;
+            document.querySelectorAll('.val-minDep1').forEach(el => el.innerText = currency.min1);
+            document.querySelectorAll('.val-max1').forEach(el => el.innerText = currency.max1);
+            document.querySelectorAll('.val-max2').forEach(el => el.innerText = currency.max2);
+            document.querySelectorAll('.val-max3').forEach(el => el.innerText = currency.max3);
+            document.querySelectorAll('.val-max4').forEach(el => el.innerText = currency.max4);
+            document.querySelectorAll('.val-maxBet').forEach(el => el.innerText = currency.mBet);
+            document.querySelectorAll('.val-sportMax').forEach(el => el.innerText = currency.sMax);
+            document.querySelectorAll('.val-sportMin').forEach(el => el.innerText = currency.sMin);
+
+            // Toggle active button style
+            document.getElementById('setUSD').className = mode === 'usd' ? 'px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500' : 'px-3 py-1 rounded-full text-[10px] font-bold text-gray-400';
+            document.getElementById('setAMD').className = mode === 'amd' ? 'px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500' : 'px-3 py-1 rounded-full text-[10px] font-bold text-gray-400';
             
-            const btnActive = 'px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500 transition-all shadow-lg';
-            const btnInactive = 'px-3 py-1 rounded-full text-[10px] font-bold text-gray-400 transition-all hover:bg-white/10';
-            document.getElementById('setUSD').className = mode === 'usd' ? btnActive : btnInactive;
-            document.getElementById('setAMD').className = mode === 'amd' ? btnActive : btnInactive;
             tg.HapticFeedback.selectionChanged();
         }
+
         document.getElementById('setUSD').onclick = () => updateCurrency('usd');
         document.getElementById('setAMD').onclick = () => updateCurrency('amd');
 
-        // --- 2. DAILY PREDICTION LOGIC (Simulated) ---
-        const matchDatabase = [
-            { t1: "Man City", t1i: "🔵", t2: "Arsenal", t2i: "🔴", tip: "Man City Win & BTTS", odds: "3.10" },
-            { t1: "Real Madrid", t1i: "👑", t2: "Barcelona", t2i: "🔵🔴", tip: "Over 3.5 Goals", odds: "2.50" },
-            { t1: "Lakers", t1i: "🏀", t2: "Warriors", t2i: "🌉", tip: "Lakers -5.5 Handicap", odds: "1.90" },
-            { t1: "PSG", t1i: "🗼", t2: "Marseille", t2i: "⚪", tip: "PSG Half-Time Lead", odds: "2.05" },
-            { t1: "Bayern", t1i: "🔴", t2: "Dortmund", t2i: "🟡", tip: "Lewandowski Anytime Scorer", odds: "1.85" },
-            { t1: "Liverpool", t1i: "🔴", t2: "Man Utd", t2i: "👹", tip: "Draw X", odds: "3.50" }
-        ];
-        
-        function loadDailyPrediction() {
-            // Use day of month to pick a consistent match for the day
-            const todayIndex = new Date().getDate() % matchDatabase.length;
-            const pick = matchDatabase[todayIndex];
-            document.getElementById('t1Name').innerText = pick.t1; document.getElementById('t1Icon').innerText = pick.t1i;
-            document.getElementById('t2Name').innerText = pick.t2; document.getElementById('t2Icon').innerText = pick.t2i;
-            document.getElementById('predText').innerText = pick.tip;
-            document.getElementById('predOdds').innerText = pick.odds;
-        }
-        loadDailyPrediction();
-
-        // --- 3. CTA LOGIC ---
-        function triggerRegister() {
-            confetti({ particleCount: 200, spread: 90, origin: { y: 0.8 }, colors: ['#ec4899', '#f59e0b'] });
+        document.getElementById('claimNow').onclick = () => {
+            confetti({ particleCount: 200, spread: 80, origin: { y: 0.8 }, colors: ['#ec4899', '#f59e0b'] });
             tg.HapticFeedback.notificationOccurred('success');
-            setTimeout(() => { tg.openLink("https://1xbet.com/registration/?tag=d_YOUR_LUNA_ID"); }, 1000);
-        }
-        
-        document.getElementById('claimNow').onclick = triggerRegister;
-        document.getElementById('betTipBtn').onclick = () => {
-             tg.HapticFeedback.impactOccurred('medium');
-             // Link specifically to sports section
-             tg.openLink("https://1xbet.com/line/football/?tag=d_YOUR_LUNA_ID");
+            setTimeout(() => {
+                tg.openLink("https://1xbet.com/en?tag=d_5038058m_1599c_");
+            }, 1000);
         };
-
-        // --- 4. NATIVE MAIN BUTTON ---
-        tg.MainButton.setText("CLAIM LUNA'S EXCLUSIVE BONUS");
-        tg.MainButton.setParams({ color: '#ec4899', text_color: '#ffffff' });
-        tg.MainButton.show();
-        tg.MainButton.onClick(triggerRegister);
     </script>
 </body>
 </html>
