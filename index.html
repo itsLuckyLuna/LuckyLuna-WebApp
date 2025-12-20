@@ -2,508 +2,412 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>LuckyLuna — SUPERNATURAL | 1XBET VIP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Luna's Betting Hub — SUPERNATURAL • 1XBET VIP</title>
+  <meta name="description" content="Join 1XBET through Luna's Betting Hub for trusted sports betting and casino thrills. Unlock bonuses and start winning today!">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts + icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Fonts + animate.css -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- AOS for simple scroll animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
-  <!-- GSAP, tsParticles, confetti -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- tsParticles for background particles (subtle) -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.8.0/tsparticles.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-  <!-- Telegram WebApp -->
+  <!-- GSAP for small micro-interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
     :root{
-      --bg:#051028;
-      --card: rgba(255,255,255,0.04);
-      --accent:#f472b6;
-      --gold:#fbbf24;
-      --superpink:#db2777;
+      --bg1:#05203a;
+      --bg2:#0f172a;
+      --accent:#ff66b2;
+      --gold:#ffd24d;
+      --glass: rgba(255,255,255,0.04);
+      --muted:#cbd5e1;
     }
+    *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(219,39,119,0.06), transparent 8%),
-                  radial-gradient(900px 400px at 90% 80%, rgba(251,191,36,0.04), transparent 12%),
-                  var(--bg);
-      color:#eaf0fb;
-      font-family:'Montserrat',sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 60%);
+      color:#eef6ff;
       -webkit-font-smoothing:antialiased;
-      -webkit-tap-highlight-color: transparent;
+      -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
     }
 
-    /* Glassmorphism */
-    .glass{
-      background:var(--card);
-      backdrop-filter: blur(12px) saturate(120%);
-      border: 1px solid rgba(255,255,255,0.06);
+    /* simple top progress bar */
+    .progress-bar{ position:fixed; left:0; top:0; width:100%; height:6px; background:rgba(255,255,255,0.03); z-index:60 }
+    .progress-fill{ height:100%; width:28%; background: linear-gradient(90deg,var(--accent),var(--gold)); box-shadow:0 6px 24px rgba(255,102,178,0.08); transition:width .8s ease; }
+
+    /* particles canvas (behind) */
+    #tsparticles{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+
+    nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 20px; position:sticky; top:0; z-index:55; background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent); border-bottom:1px solid rgba(255,255,255,0.03); }
+    .brand{ display:flex; gap:12px; align-items:center }
+    .orb{ width:44px; height:44px; border-radius:999px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(255,255,255,0.02) 30%); box-shadow:0 10px 30px rgba(255,102,178,0.06) }
+    .brand h1{ margin:0; font-family:'Playfair Display', serif; font-weight:700; font-size:18px; letter-spacing:0.5px }
+    .promo{ padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); font-size:12px; color:var(--gold); font-weight:700 }
+
+    /* HERO */
+    #hero{ position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:36px 16px; }
+    #hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(45deg, rgba(255,102,178,0.06), rgba(255,210,77,0.04));
+      z-index:0; pointer-events:none;
     }
+    #hero video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.35; filter:contrast(0.95) saturate(1.05) }
+    .hero-inner{ position:relative; z-index:10; max-width:980px; }
+    .headline{ font-family:'Playfair Display', serif; font-size:34px; margin:0 0 12px; line-height:1.02; color:#fff; text-shadow:0 6px 30px rgba(0,0,0,0.5) }
+    .sub{ color:var(--muted); margin:0 0 20px; font-size:15px }
 
-    /* Luxury text */
-    .font-luxury{ font-family:'Cinzel', serif; }
-    .gold-shimmer{
-      background: linear-gradient(90deg,var(--gold),#fff9e6,var(--gold));
-      background-size:200% auto;
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      animation: shine 3s linear infinite;
+    .cta-button{
+      display:inline-block; background:linear-gradient(90deg,var(--gold),#ffdd7f); color:var(--bg2); padding:14px 26px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 12px 40px rgba(255,210,77,0.12); transform-origin:center; transition:transform .18s ease, box-shadow .18s ease;
     }
-    @keyframes shine{ to{ background-position:200% center } }
+    .cta-button:hover{ transform:translateY(-6px); box-shadow:0 24px 60px rgba(255,210,77,0.18) }
 
-    /* Moon / orb */
-    .luna-orb{
-      width:88px;height:88px;border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), rgba(244,114,182,0.06) 25%, rgba(0,0,0,0.02) 60%);
-      box-shadow: 0 12px 40px rgba(219,39,119,0.12), inset 0 -6px 16px rgba(0,0,0,0.25);
-    }
+    /* small calculator card */
+    .calc{ margin:22px auto 0; width:100%; max-width:540px; background:var(--glass); border-radius:16px; padding:18px; border:1px solid rgba(255,255,255,0.04); box-shadow:0 10px 40px rgba(11,22,44,0.45) }
+    .calc .row{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px }
+    .calc .label{ font-size:12px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase }
+    .big-money{ font-family:'Roboto',monospace; font-weight:700; font-size:24px; color:#fff }
 
-    /* progress bar */
-    .progress-bar{ height:6px; background: rgba(255,255,255,0.03); width:100%; position: fixed; top:0; left:0; z-index:60; }
-    .progress-fill{ height:100%; background: linear-gradient(90deg,var(--superpink),var(--accent)); width:28%; transition: width .9s cubic-bezier(.2,.9,.2,1); box-shadow: 0 6px 24px rgba(219,39,119,0.15)}
-
-    /* spin wheel */
-    .wheel-container{ position: relative; width:300px; height:300px; margin: 0 auto; }
-    #wheel{ width:100%; height:100%; border-radius:999px; border:10px solid rgba(15,23,42,0.7); transition: transform 4s cubic-bezier(.15,0,.15,1); box-shadow: 0 20px 60px rgba(0,0,0,0.45); background-size:cover; background-position:center;}
-    .wheel-pointer{ position:absolute; top:-8px; left:50%; transform:translateX(-50%); width:34px; height:34px; background:var(--gold); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index:30; box-shadow:0 8px 30px rgba(251,191,36,0.12); }
+    /* Features / cards */
+    .section{ padding:46px 16px; max-width:1200px; margin:0 auto }
+    .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px }
+    .card{ background:rgba(255,255,255,0.02); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); transition:transform .22s ease, box-shadow .22s ease }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 18px 50px rgba(0,0,0,0.45) }
+    .card h3{ margin:8px 0 6px; font-size:16px; color:#fff }
+    .card p{ margin:0; color:var(--muted); font-size:13px }
 
     /* marquee */
-    @keyframes marquee{ 0%{ transform: translateX(100%);} 100%{ transform: translateX(-100%);} }
-    .animate-marquee{ animation: marquee 22s linear infinite; white-space:nowrap; }
+    .marquee{ overflow:hidden; white-space:nowrap; border-top:1px solid rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.03); padding:12px 0; margin-top:28px }
+    .marquee-inner{ display:inline-block; animation:marquee 18s linear infinite }
+    @keyframes marquee{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
 
-    /* small helper */
-    input[type='range']{ -webkit-appearance:none; width:100%; height:10px; background: rgba(255,255,255,0.03); border-radius:999px }
-    input[type='range']::-webkit-slider-thumb{ -webkit-appearance:none; width:28px; height:28px; border-radius:50%; border:3px solid #fff; background:var(--accent); box-shadow:0 6px 20px rgba(244,114,182,0.35) }
+    /* testimonials */
+    .testimonials{ display:flex; gap:12px; overflow:hidden; position:relative; }
+    .testimonial{ min-width:100%; padding:18px; text-align:center; background:rgba(255,255,255,0.02); border-radius:12px }
+    .testimonial p{ margin:0; color:var(--muted) }
+
+    /* footer */
+    footer{ padding:36px 16px; text-align:center; color:var(--muted) }
 
     /* tip box */
-    .tip-box{ position: fixed; bottom:110px; right:18px; z-index:70; display:none; }
+    .tip-box{ position:fixed; right:18px; bottom:110px; z-index:70; display:none }
 
-    /* preloader */
-    #preloader{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#041025 0%, #041025 80%); z-index:9999 }
-    .sr-only{ position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
-
-    /* responsiveness */
-    @media (min-width:768px){
-      .hero-grid{ display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:center; }
+    /* responsive */
+    @media (min-width:900px){
+      .headline{ font-size:44px }
     }
   </style>
 </head>
 <body>
-  <!-- CONFIG -->
+  <!-- small configuration: edit here or pass ?aff=... -->
   <script>
-    // Edit here or pass ?aff=... to override
     const AFFILIATE_LINK = (new URLSearchParams(location.search).get('aff') || 'https://1xbet.com/registration/?tag=YOUR_AFF_ID');
   </script>
 
-  <!-- Preloader -->
-  <div id="preloader" aria-hidden="true">
-    <div class="flex flex-col items-center gap-4">
-      <div class="luna-orb animate-pulse"></div>
-      <div class="text-xs text-gray-300">LuckyLuna — Summoning your VIP experience…</div>
-    </div>
-  </div>
+  <div class="progress-bar" aria-hidden="true"><div id="pFill" class="progress-fill"></div></div>
 
-  <!-- particles layer (tsParticles) -->
-  <div id="tsparticles" class="fixed inset-0 -z-20" aria-hidden="true"></div>
-
-  <!-- Progress bar -->
-  <div class="progress-bar"><div class="progress-fill" id="pFill" style="width:28%"></div></div>
+  <!-- particles background -->
+  <div id="tsparticles" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav class="p-4 flex items-center justify-between sticky top-0 z-50 glass/90 backdrop-blur-md">
-    <div class="flex items-center gap-3">
-      <div class="rounded-full w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-pink-500 to-pink-400 shadow-lg">
-        <img src="https://ui-avatars.com/api/?name=LL&background=f472b6&color=fff&size=64" alt="Lucky Luna" class="w-7 h-7 rounded-full"/>
-      </div>
+  <nav>
+    <div class="brand">
+      <div class="orb" aria-hidden="true"></div>
       <div>
-        <div class="text-lg font-luxury">Lucky<span class="text-pink-300">Luna</span></div>
-        <div class="text-[11px] text-gray-300">SUPERNATURAL • VIP PICKS</div>
+        <h1>LuckyLuna</h1>
+        <div style="font-size:11px;color:var(--muted)">Royal Partner</div>
       </div>
     </div>
-
-    <div class="flex items-center gap-3">
-      <div class="bg-white/5 border border-white/8 px-3 py-1 rounded-full text-xs font-semibold text-yellow-300">PROMO: LUNA1X</div>
-      <button id="menuBtn" class="text-xs uppercase tracking-widest font-bold px-3 py-2 rounded-md glass">Menu</button>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="promo">PROMO LUNA1X</div>
+      <button id="openMenu" style="background:transparent;border:0;color:var(--muted);font-weight:600;cursor:pointer">Menu</button>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="max-w-5xl mx-auto py-12 px-6">
-    <div class="hero-grid">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-playfair font-bold leading-tight mb-4 animate__animated animate__fadeInDown">Play Like a <span class="gold-shimmer">Queen</span>, Win Like a Pro</h1>
-        <p class="text-gray-300 max-w-2xl mb-6 text-sm animate__animated animate__fadeInUp">Welcome to LuckyLuna Royale — spin, unlock VIP tiers and claim supernatural bonuses on 1XBET. Small, consistent picks, honest odds. Always play responsibly.</p>
+  <section id="hero" role="banner" aria-labelledby="heroTitle">
+    <!-- optional video background (replace URL) -->
+    <video autoplay muted loop playsinline>
+      <!-- replace with your own video or remove the element to save data -->
+      <source src="" type="video/mp4">
+    </video>
 
-        <div class="glass p-5 rounded-2xl w-full md:w-auto shadow-xl mb-6">
-          <div class="flex items-center gap-4 mb-4">
-            <div class="luna-orb shrink-0"></div>
-            <div>
-              <div class="text-sm font-bold">Luna's Private Circle</div>
-              <div class="text-xs text-green-300 font-semibold">🟢 <span id="liveCount">1,240</span> Players Online</div>
-            </div>
-          </div>
+    <div class="hero-inner" data-aos="fade-up">
+      <h2 id="heroTitle" class="headline">Unlock Trusted Betting Thrills with <span style="background:linear-gradient(90deg,var(--gold),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">1XBET</span></h2>
+      <p class="sub">Join Luna's Betting Hub — VIP promos, curated picks, honest odds. 18+ only. Play responsibly.</p>
 
-          <div>
-            <label class="text-[11px] uppercase tracking-wider text-pink-200 font-bold">Your First Deposit</label>
-            <div class="flex items-end justify-between mb-2">
-              <div class="text-xs text-gray-400">Min $10 — Max $1000</div>
-              <div class="text-2xl font-mono font-bold">$<span id="depositVal">100</span></div>
-            </div>
-            <input id="depositSliderHero" type="range" min="10" max="1000" step="10" value="100" aria-label="Deposit slider">
-            <div class="mt-3 bg-white/5 p-3 rounded-xl text-center border border-white/6">
-              <div class="text-[9px] uppercase tracking-widest text-gray-300 mb-1">Total to Play With</div>
-              <div class="text-3xl md:text-4xl font-playfair font-bold text-pink-300" id="totalDisplayHero">$200</div>
-              <div class="text-[11px] mt-2 font-semibold text-yellow-300">+ 150 FREE SPINS 🎰</div>
-            </div>
-
-            <div class="mt-4">
-              <button id="ctaHero" class="w-full md:w-auto px-6 py-3 rounded-xl font-black uppercase tracking-widest bg-gradient-to-r from-pink-500 to-pink-600 shadow-lg">Create Account & Claim Bonus</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <button id="demoOdds" class="text-[13px] py-2 px-4 rounded-full glass font-semibold">See Demo Odds</button>
-          <button id="howItWorks" class="text-[13px] py-2 px-4 rounded-full glass font-semibold">How It Works</button>
-        </div>
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap">
+        <a id="cta" href="#" class="cta-button" role="button" aria-label="Join & Claim Bonus">Join Now & Claim Your Bonus</a>
+        <a id="howit" href="#" style="color:var(--muted); font-weight:600; text-decoration:underline; font-size:14px">How it works</a>
       </div>
 
-      <!-- right column: wheel + quick trust -->
-      <div class="space-y-6">
-        <div class="glass p-6 rounded-2xl shadow-2xl text-center">
-          <div class="text-[11px] uppercase text-gray-400 font-bold mb-2">Spin for a Surprise</div>
-          <div class="wheel-container mb-4">
-            <div class="wheel-pointer" aria-hidden="true"></div>
-            <!-- Use a stylized wheel image as background; if you prefer segmented CSS replace with SVG segments -->
-            <div id="wheel" role="img" aria-label="Spin wheel" style="background-image: url('https://i.ibb.co/3s68r8v/Group-1.png');"></div>
-          </div>
-          <button id="spinBtn" class="bg-gradient-to-r from-pink-500 to-pink-700 text-white px-8 py-3 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(219,39,119,0.32)] active:scale-95 transition-all">
-            SPIN FOR FREE
-          </button>
+      <!-- calculator -->
+      <div class="calc" aria-hidden="false" data-aos="fade-up">
+        <div class="row">
+          <div class="label">Your First Deposit</div>
+          <div class="big-money">$<span id="depositVal">100</span></div>
         </div>
-
-        <div class="glass p-5 rounded-2xl text-center">
-          <div class="text-[11px] uppercase text-gray-300 font-bold mb-2">Why LuckyLuna Trust 1XBET</div>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 glass rounded-xl"><div class="text-xl">⚡</div><div class="text-[11px] font-bold uppercase">Fast Payouts</div></div>
-            <div class="p-3 glass rounded-xl"><div class="text-xl">🛡️</div><div class="text-[11px] font-bold uppercase">Licensed</div></div>
-            <div class="p-3 glass rounded-xl"><div class="text-xl">⚽</div><div class="text-[11px] font-bold uppercase">1000+ Events</div></div>
-            <div class="p-3 glass rounded-xl"><div class="text-xl">💎</div><div class="text-[11px] font-bold uppercase">VIP Loyalty</div></div>
-          </div>
+        <input id="depositSlider" type="range" min="10" max="1000" step="10" value="100" aria-label="Deposit amount">
+        <div class="row" style="margin-top:12px">
+          <div class="label">Total to Play With</div>
+          <div class="big-money" id="totalDisplay">$200</div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Live ticker / main area (hidden until spin) -->
-  <main id="mainContent" class="max-w-5xl mx-auto px-6 pb-24 hidden">
-    <section class="py-6 text-center">
-      <div class="bg-yellow-500/10 border border-yellow-500/20 py-2 rounded-xl mb-6 inline-block px-6">
-        <span class="text-yellow-500 font-bold text-xs">UNLOCKED: ROYAL VIP BONUS (200%)</span>
+  <!-- features -->
+  <section class="section">
+    <div class="container" style="max-width:1100px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <h3 style="margin:0;font-family:'Playfair Display',serif">Why Pick 1XBET via Luna</h3>
+        <div style="color:var(--muted);font-weight:600">Trusted • Fast Payouts • VIP Promos</div>
       </div>
-      <h2 class="text-3xl md:text-4xl font-luxury mb-2">You're One Step From the <span class="gold-shimmer">Throne</span></h2>
-      <p class="text-sm text-gray-300 max-w-2xl mx-auto">Claim your VIP status, receive extra spins and access Luna's private picks.</p>
-    </section>
 
-    <section class="py-6">
-      <div class="glass p-8 rounded-3xl border-t border-pink-500/30 relative">
-        <div class="space-y-8">
-          <div>
-            <div class="flex justify-between mb-4">
-              <label class="text-[10px] font-bold text-gray-400 uppercase">Your First Deposit</label>
-              <span class="text-2xl font-luxury text-white">$<span id="depVal">100</span></span>
-            </div>
-            <input type="range" id="depSlider" min="10" max="1000" step="10" value="100" class="w-full" aria-label="Deposit slider main">
-          </div>
-
-          <div class="bg-pink-600/10 p-6 rounded-2xl border border-pink-500/20 text-center">
-            <p class="text-[9px] text-pink-300 uppercase font-black mb-1">Luna's Guaranteed Balance</p>
-            <div id="totalVal" class="text-5xl font-luxury font-bold text-white">$200</div>
-          </div>
+      <div class="cards" style="margin-top:18px">
+        <div class="card" data-aos="zoom-in">
+          <div style="font-size:22px">🛡️</div>
+          <h3>Licensed & Trusted</h3>
+          <p>Operating internationally with secure payouts.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <div style="font-size:22px">⚽</div>
+          <h3>Wide Coverage</h3>
+          <p>Thousands of events and live odds every day.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <div style="font-size:22px">🎰</div>
+          <h3>Bonuses & Spins</h3>
+          <p>Generous welcome offers and ongoing promos.</p>
         </div>
       </div>
-    </section>
 
-    <div class="overflow-hidden py-4 border-y border-white/5 mb-10 bg-black/20">
-      <div class="flex animate-marquee gap-6 px-6">
-        <span class="mx-4 text-[10px] font-bold text-pink-400">🔥 Anna K. just won $2,400!</span>
-        <span class="mx-4 text-[10px] font-bold text-yellow-500">💎 VIP Code LUNA1X Active</span>
-        <span class="mx-4 text-[10px] font-bold text-pink-400">🔥 Elena just won 200 Free Spins!</span>
-      </div>
-    </div>
-
-    <!-- testimonials and trust -->
-    <div class="grid md:grid-cols-2 gap-6">
-      <section class="glass p-6 rounded-2xl">
-        <div class="text-xs uppercase text-gray-400 font-bold mb-4">Live Wins</div>
-        <div id="ticker" class="space-y-3 text-sm"></div>
-      </section>
-
-      <aside class="glass p-6 rounded-2xl">
-        <div class="text-xs uppercase text-gray-300 font-bold mb-4">Trusted By</div>
-        <div class="flex gap-3 items-center justify-center mb-4">
-          <img src="https://via.placeholder.com/80x28?text=Visa" alt="Visa" class="h-7 object-contain opacity-90"/>
-          <img src="https://via.placeholder.com/80x28?text=MC" alt="Mastercard" class="h-7 object-contain"/>
-          <img src="https://via.placeholder.com/80x28?text=Crypto" alt="Crypto" class="h-7 object-contain"/>
+      <div class="marquee" aria-hidden="true" style="margin-top:24px">
+        <div class="marquee-inner">
+          <span style="margin-right:36px;color:var(--accent)">🔥 Anna K. just won $2,400!</span>
+          <span style="margin-right:36px;color:var(--gold)">💎 VIP Code LUNA1X Active</span>
+          <span style="margin-right:36px;color:var(--accent)">🔥 Elena just won 200 Free Spins!</span>
+          <!-- repeat for seamless effect -->
+          <span style="margin-left:24px;margin-right:36px;color:var(--accent)">🔥 Anna K. just won $2,400!</span>
+          <span style="margin-right:36px;color:var(--gold)">💎 VIP Code LUNA1X Active</span>
         </div>
-        <div class="text-xs text-gray-300 mb-3">Safe registration • 24/7 support • Fast withdrawals</div>
-        <button id="supportBtn" class="w-full py-3 rounded-xl font-semibold glass">Contact Support</button>
-      </aside>
-    </div>
-  </main>
-
-  <!-- Tip box -->
-  <div id="tipBox" class="tip-box animate__animated animate__bounceIn">
-    <div class="glass p-4 rounded-2xl border-l-4 border-pink-500 shadow-2xl flex items-center space-x-3">
-      <div class="text-xl">⚽</div>
-      <div>
-        <p class="text-[8px] font-black text-pink-500 uppercase">Luna's Live Tip</p>
-        <p class="text-[10px] font-bold text-white">Madrid to Win (Live Odds 2.10)</p>
       </div>
+    </div>
+  </section>
+
+  <!-- testimonials -->
+  <section class="section" style="padding-top:18px;padding-bottom:18px">
+    <div class="container">
+      <h3 style="margin-bottom:12px">What Our Users Say</h3>
+      <div class="testimonials" id="testimonialWrap">
+        <div class="testimonial" data-aos="fade-left">
+          <p>"1XBET changed my betting game! Fast wins and great bonuses." — Sarah W.</p>
+        </div>
+        <div class="testimonial" data-aos="fade-left">
+          <p>"Love the live casino – feels like Vegas from home!" — Mia L.</p>
+        </div>
+        <div class="testimonial" data-aos="fade-left">
+          <p>"Secure and fun – highly recommend via Luna's Hub." — Emma T.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section class="section" style="padding-top:12px;padding-bottom:12px">
+    <div class="container" style="max-width:800px">
+      <h3>How It Works</h3>
+      <div class="steps" style="margin-top:12px">
+        <div class="step" data-aos="fade-up" data-step="1" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">1. Sign up via my affiliate link</div>
+        <div class="step" data-aos="fade-up" data-step="2" data-aos-delay="150" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">2. Make a secure deposit</div>
+        <div class="step" data-aos="fade-up" data-step="3" data-aos-delay="300" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">3. Place bets or play casino — small, smart slips</div>
+        <div class="step" data-aos="fade-up" data-step="4" data-aos-delay="450" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent)">4. Withdraw quickly — enjoy your wins</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- tip box -->
+  <div class="tip-box" id="tipBox" aria-hidden="true">
+    <div style="background:var(--glass);padding:12px;border-radius:12px;border-left:4px solid var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.5)">
+      <div style="font-size:14px;font-weight:700;color:var(--accent)">Luna's Live Tip</div>
+      <div style="font-size:13px;color:#fff">Real Madrid • Match Winner (Live Odds 2.10)</div>
     </div>
   </div>
 
-  <!-- How it works modal -->
-  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-60 bg-black/60">
-    <div class="glass p-6 rounded-2xl max-w-xl w-full">
-      <h3 class="font-bold text-xl mb-2">How it works</h3>
-      <p class="text-sm text-gray-300 mb-4">We match 100% (or more for special tiers) of your first deposit up to the promo cap. Picks are curated by Luna — conservative, high-confidence slips. Always gamble responsibly.</p>
-      <div class="flex justify-end gap-3">
-        <button id="closeModal" class="px-4 py-2 rounded-md glass">Close</button>
+  <!-- footer -->
+  <footer>
+    <div style="max-width:980px;margin:0 auto;padding:18px">
+      <p style="margin:6px 0;color:var(--muted);font-size:13px">18+ only. Gamble responsibly. Affiliate disclosure: promotional content for 1XBET. Terms apply.</p>
+      <div style="margin:12px 0">
+        <a id="footerCTA" href="#" class="cta-button" style="background:transparent; color:var(--gold); box-shadow:none; border:1px solid rgba(255,210,77,0.12)">Get Started Today</a>
       </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="text-center text-[12px] text-gray-400 pb-8 mt-12">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-3">🔞 Play Responsibly. 1XBET is a licensed operator.</div>
-      <div class="flex items-center justify-center gap-6 opacity-80">
-        <a href="#" class="uppercase">Terms</a>
-        <a href="#" class="uppercase">Privacy</a>
-        <a href="#" class="uppercase">Support</a>
-      </div>
+      <div style="color:var(--muted)"><a href="https://www.gamblingtherapy.org/" style="color:var(--muted)">Responsible Gambling</a> · <a href="#" style="color:var(--muted)">Privacy</a></div>
     </div>
   </footer>
 
-  <!-- Inline scripts -->
+  <!-- confetti canvas (hidden visually, used by canvas-confetti) -->
+  <canvas id="confetti-canvas" style="position:fixed; inset:0; pointer-events:none; z-index:9999; display:none"></canvas>
+
+  <!-- Scripts: AOS, simple carousel, tsParticles, interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // TELEGRAM WEBAPP setup (safe guards)
-    const tg = window.Telegram?.WebApp;
-    try{ tg?.ready(); tg?.expand(); tg?.setHeaderColor && tg.setHeaderColor('#051028'); }catch(e){}
+    AOS.init({ duration: 650, once: true, easing: 'ease-out-cubic' });
 
-    // hide preloader after load
-    window.addEventListener('load', ()=> {
-      gsap.to('#preloader',{ autoAlpha:0, duration:0.6, onComplete: ()=>document.getElementById('preloader').style.display='none' });
-    });
-
-    // tsParticles background (soft floating diamonds + glow)
+    // tsParticles subtle background
     tsParticles.load("tsparticles", {
-      fullScreen: { enable:false },
+      fullScreen: { enable: false },
       particles: {
-        number: { value: 40, density: { enable:true, area: 900 } },
-        color: { value: ['#f472b6', '#fbbf24', '#ffffff'] },
+        number: { value: 30, density: { enable: true, area: 900 } },
+        color: { value: ['#ff66b2', '#ffd24d', '#ffffff'] },
         shape: { type: ['circle','polygon'], options: { polygon: { sides: 4 } } },
-        opacity: { value: 0.08, random: { enable:true, minimumValue:0.02 } },
-        size: { value: { min: 1, max: 8 } },
+        opacity: { value: 0.08 },
+        size: { value: { min: 1, max: 7 } },
         move: { enable: true, speed: 0.6, direction: 'top', outModes: { default: 'out' } }
       },
-      interactivity: { events: { onHover: { enable:true, mode:'grab' } }, modes: { grab: { distance:130 } } }
+      interactivity: { events: { onHover: { enable: true, mode: 'grab' } }, modes: { grab: { distance: 120 } } }
     });
+  </script>
 
-    // elements
-    const depositSliderHero = document.getElementById('depositSliderHero');
-    const depositValEl = document.getElementById('depositVal');
-    const totalDisplayHero = document.getElementById('totalDisplayHero');
-    const ctaHero = document.getElementById('ctaHero');
-    const spinBtn = document.getElementById('spinBtn');
-    const wheel = document.getElementById('wheel');
-    const gameSection = document.getElementById('wheel').closest('section') || document.querySelector('header');
-    const mainContent = document.getElementById('mainContent');
-    const pFill = document.getElementById('pFill');
-    const depSliderMain = document.getElementById('depSlider');
-    const depValMain = document.getElementById('depVal');
-    const totalVal = document.getElementById('totalVal');
+  <script>
+    // TELEGRAM WEBAPP support (optional)
+    const tg = window.Telegram?.WebApp;
+    try{ tg?.ready?.(); tg?.expand?.(); }catch(e){ /* ignore if not available */ }
+
+    // Elements
+    const depositSlider = document.getElementById('depositSlider');
+    const depositVal = document.getElementById('depositVal');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const cta = document.getElementById('cta');
+    const footerCTA = document.getElementById('footerCTA');
     const tipBox = document.getElementById('tipBox');
-    const demoOdds = document.getElementById('demoOdds');
-    const howItWorks = document.getElementById('howItWorks');
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-    const ticker = document.getElementById('ticker');
-    const liveCount = document.getElementById('liveCount');
-    const supportBtn = document.getElementById('supportBtn');
-    const ctaMain = document.getElementById('ctaHero');
+    const pFill = document.getElementById('pFill');
 
-    // small sample content
-    const sampleTicker = [
-      {when:'2m', text:'Luna +$120 on Napoli vs AC (2.5 odds)'},
-      {when:'7m', text:'VIP slip: +$85 — 3/3 correct!'},
-      {when:'20m', text:'Live: Casino +200 free spins claimed'},
-    ];
-    const sampleTestimonials = [
-      {name:'Arya', text:'Followed Luna for 3 months — consistent small wins.'},
-      {name:'Mark', text:'Fast payouts and helpful support. Promo worked.'},
-      {name:'Sofia', text:'I like the honesty. Picks are realistic.'},
-    ];
-
-    function renderTicker(){
-      if(!ticker) return;
-      ticker.innerHTML = '';
-      sampleTicker.forEach(it=>{
-        const div = document.createElement('div');
-        div.className = 'flex items-center justify-between bg-white/2 p-3 rounded-lg';
-        div.innerHTML = `<div class="text-sm">${it.text}</div><div class="text-xs text-gray-300 font-mono">${it.when}</div>`;
-        ticker.appendChild(div);
-      });
-    }
-    renderTicker();
-
-    // live count animation
-    let liveNum = 1240;
-    setInterval(()=>{ liveNum += Math.floor(Math.random()*3 - 1); if(liveNum<900) liveNum=900; liveCount.innerText = liveNum; }, 5400);
-
-    // deposit helpers with flexible bonus rules
-    function formatMoney(n){ return Number(n).toLocaleString(); }
+    // Bonus calculation: 100% match up to $500, then 50% beyond (rounded to 5)
     function calculateBonus(deposit){
       const d = Number(deposit);
       const cap = 500;
-      let bonus = d <= cap ? d : (cap + (d - cap) * 0.5);
-      bonus = Math.round(bonus/5)*5;
+      let bonus;
+      if(d <= cap){
+        bonus = d;
+      } else {
+        const extra = d - cap;
+        bonus = cap + extra * 0.5;
+      }
+      // round to nearest 5
+      bonus = Math.round(bonus / 5) * 5;
       return bonus;
     }
-    function updateHeroDeposit(){
-      const d = Number(depositSliderHero.value);
+
+    function updateDepositUI(source){
+      const d = Number(depositSlider.value);
       const bonus = calculateBonus(d);
-      depositValEl.innerText = formatMoney(d);
-      totalDisplayHero.innerText = '$' + formatMoney(d + bonus);
-      gsap.fromTo(totalDisplayHero, {scale:0.98}, {scale:1, duration:0.45, ease:'elastic.out(1,0.6)'});
-      try{ tg?.HapticFeedback?.selectionChanged(); }catch(e){}
+      depositVal.innerText = d.toLocaleString();
+      totalDisplay.innerText = '$' + (d + bonus).toLocaleString();
+      // simple pulse
+      gsap.fromTo(totalDisplay, {scale:0.98}, {scale:1, duration:0.45, ease:'elastic.out(1,0.6)'});
+      try{ tg?.HapticFeedback?.selectionChanged?.(); }catch(e){}
     }
-    depositSliderHero.addEventListener('input', updateHeroDeposit);
-    updateHeroDeposit();
 
-    // main deposit slider
-    if(depSliderMain){
-      depSliderMain.addEventListener('input', ()=>{
-        const val = Number(depSliderMain.value);
-        depValMain.innerText = formatMoney(val);
-        totalVal.innerText = '$' + formatMoney(val + calculateBonus(val));
-        try{ tg?.HapticFeedback?.selectionChanged(); }catch(e){}
+    depositSlider.addEventListener('input', ()=> updateDepositUI('slider'));
+    depositSlider.addEventListener('keydown', (e)=>{
+      // keyboard accessibility: left/right arrows
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowDown'){ depositSlider.value = Math.max(Number(depositSlider.min), Number(depositSlider.value) - Number(depositSlider.step)); updateDepositUI('keyboard'); }
+      if(e.key === 'ArrowRight' || e.key === 'ArrowUp'){ depositSlider.value = Math.min(Number(depositSlider.max), Number(depositSlider.value) + Number(depositSlider.step)); updateDepositUI('keyboard'); }
+    });
+    updateDepositUI();
+
+    // Testimonials carousel (tiny)
+    (function(){
+      const wrap = document.getElementById('testimonialWrap');
+      const children = wrap.children;
+      let idx = 0;
+      setInterval(()=> {
+        idx = (idx + 1) % children.length;
+        wrap.style.transform = `translateX(-${idx * 100}%)`;
+        wrap.style.transition = 'transform .7s cubic-bezier(.2,.9,.3,1)';
+      }, 5200);
+    })();
+
+    // Confetti trigger using canvas-confetti
+    function fireConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      canvas.style.display = 'block';
+      // full-screen confetti
+      confetti({
+        particleCount: 140,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff66b2', '#ffd24d', '#ffffff']
       });
-      // keyboard accessibility
-      depSliderMain.addEventListener('keydown', (e)=>{ if(e.key==='ArrowLeft'||e.key==='ArrowDown'){ depSliderMain.value = Math.max(Number(depSliderMain.min), Number(depSliderMain.value) - Number(depSliderMain.step)); depSliderMain.dispatchEvent(new Event('input')) } if(e.key==='ArrowRight'||e.key==='ArrowUp'){ depSliderMain.value = Math.min(Number(depSliderMain.max), Number(depSliderMain.value) + Number(depSliderMain.step)); depSliderMain.dispatchEvent(new Event('input')) } });
+      try{ tg?.HapticFeedback?.notificationOccurred?.('success'); }catch(e){}
+      // hide after short timeout (canvas-confetti handles visuals)
+      setTimeout(()=> { canvas.style.display = 'none'; }, 900);
     }
 
-    // SPIN logic (GSAP rotation for smooth)
-    let spinning = false;
-    spinBtn.addEventListener('click', spinWheel);
-    spinBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); spinWheel(); } });
-
-    function spinWheel(){
-      if(spinning) return;
-      spinning = true;
-      try{ tg?.HapticFeedback?.impactOccurred('heavy'); }catch(e){}
-      spinBtn.disabled = true;
-      spinBtn.innerText = 'SPINNING...';
-      // random full rotations + random offset; choose a 'prize' angle to make it feel fair
-      const minFull = 6; // full rotations
-      const addition = Math.floor(Math.random()*360);
-      const degree = 360 * minFull + addition + (Math.random() > 0.5 ? 20 : -20);
-      // animate via GSAP for better easing
-      gsap.to(wheel, { rotation: degree, duration: 4.2, ease: 'power4.out', onComplete: ()=> onSpinComplete(addition) });
-    }
-
-    function onSpinComplete(rotationMod){
-      // show confetti, haptics, and reveal main content
-      confetti({ particleCount: 160, spread: 80, origin: { y: 0.6 }, colors: ['#f472b6','#fbbf24','#ffffff'] });
-      try{ tg?.HapticFeedback?.notificationOccurred('success'); }catch(e){}
-
-      // small reward selection based on rotationMod (optional: map to prize)
-      // reveal main content
-      gsap.to('#mainContent', { autoAlpha:1, duration:0.6, onStart: ()=> { document.getElementById('mainContent').classList.remove('hidden'); } });
-      // update progress bar & status
-      document.getElementById('statusText') && (document.getElementById('statusText').innerText = "Level: ROYAL VIP");
-      pFill.style.width = "66%";
-      // show telegram main button
-      showMainButton();
-      // show tip pop after delay
-      setTimeout(()=> {
-        tipBox.style.display='block';
-        try{ tg?.HapticFeedback?.impactOccurred('medium'); }catch(e){}
-        setTimeout(()=> tipBox.style.display='none', 7000);
-      }, 1100);
-
-      // re-enable spin btn (for second fun spin if desired)
-      setTimeout(()=>{ spinning=false; spinBtn.disabled=false; spinBtn.innerText='SPIN FOR FREE'; }, 1600);
-    }
-
-    // CTA behavior: confetti + open affiliate link
+    // CTA behavior: confetti + open affiliate link + show Telegram MainButton
     function startConversion(source){
-      confetti({ particleCount: 140, spread: 70, origin: { y: 0.6 }, colors: ['#f472b6', '#fbbf24', '#ffffff'] });
-      try{ tg?.HapticFeedback?.notificationOccurred('success'); }catch(e){}
-      gsap.to(ctaHero, { scale:0.98, duration:0.07, yoyo:true, repeat:1 });
-      setTimeout(()=>{
-        if(tg){ try{ tg.openLink(AFFILIATE_LINK); }catch(e){ window.open(AFFILIATE_LINK, '_blank'); } }
-        else { window.open(AFFILIATE_LINK, '_blank'); }
-        // small analytics beacon (optional server endpoint)
-        navigator.sendBeacon && navigator.sendBeacon('/_conv', JSON.stringify({time:Date.now(), source, aff:AFFILIATE_LINK}));
+      fireConfetti();
+      gsap.to(cta, { scale: 0.98, duration: 0.08, yoyo: true, repeat: 1 });
+      // progress fill to 100% for effect then open link
+      pFill.style.width = '100%';
+      setTimeout(()=> {
+        if(tg){
+          try{ tg.openLink(AFFILIATE_LINK); }catch(e){ window.open(AFFILIATE_LINK, '_blank'); }
+        } else {
+          window.open(AFFILIATE_LINK, '_blank');
+        }
+        // optional beacon (no external libs)
+        navigator.sendBeacon && navigator.sendBeacon('/_conv', JSON.stringify({t:Date.now(), s:source, aff:AFFILIATE_LINK}));
       }, 650);
     }
 
-    // Hook CTAs
-    ctaHero.addEventListener('click', ()=> startConversion('hero-cta'));
-    document.getElementById('ctaHero')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter') startConversion('hero-cta') });
+    cta.addEventListener('click', (e)=>{ e.preventDefault(); startConversion('hero-cta'); });
+    footerCTA.addEventListener('click', (e)=>{ e.preventDefault(); startConversion('footer-cta'); });
 
-    // Telegram MainButton
-    function showMainButton(){
-      if(!tg) return;
+    // show tip box briefly
+    setTimeout(()=> {
+      tipBox.style.display = 'block';
+      gsap.fromTo(tipBox, {y:20, autoAlpha:0}, { y:0, autoAlpha:1, duration:0.5, ease:'power2.out' });
+      setTimeout(()=> gsap.to(tipBox, { y:20, autoAlpha:0, duration:0.45, onComplete: ()=> tipBox.style.display='none' }), 6000);
+    }, 7000);
+
+    // Telegram MainButton: set text and route to affiliate link if TG present
+    if(tg){
       try{
-        tg.MainButton.setParams({ color: '#db2777', text_color: '#ffffff' });
-        tg.MainButton.setText('CLAIM MY VIP STATUS & BONUS');
+        tg.MainButton.setParams({ color: '#ff66b2', text_color: '#ffffff' });
+        tg.MainButton.setText('CLAIM BONUS — JOIN NOW');
         tg.MainButton.show();
         tg.MainButton.onClick(()=> startConversion('tg-main'));
-      }catch(e){ console.warn('Telegram MainButton error', e); }
+      }catch(e){
+        console.warn('Telegram MainButton not available', e);
+      }
     }
 
-    // demo/odds & modal
-    demoOdds.addEventListener('click', ()=> {
-      gsap.fromTo('#ticker', { y: 20, autoAlpha:0 }, { y:0, autoAlpha:1, duration:0.6, ease:'power2.out' });
-      renderTicker();
-      window.scrollTo({ top: document.getElementById('ticker').offsetTop - 60, behavior:'smooth' });
-    });
+    // Small entrance micro-animations
+    gsap.from('.hero-inner .headline', { y:-18, autoAlpha:0, duration:0.9, ease:'power3.out' });
+    gsap.from('.calc', { y:12, autoAlpha:0, duration:0.9, delay:0.12 });
 
-    howItWorks.addEventListener('click', ()=> { modal.classList.remove('hidden'); modal.classList.add('flex'); gsap.fromTo('#modal > div',{ y:20, autoAlpha:0 },{ y:0, autoAlpha:1, duration:0.36 }); });
-    closeModal.addEventListener('click', ()=> { gsap.to('#modal > div',{ y:10, autoAlpha:0, duration:0.25, onComplete: ()=> modal.classList.add('hidden') }); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && !modal.classList.contains('hidden')) closeModal.click(); });
+    // Accessibility: ensure CTA is keyboard focusable
+    cta.tabIndex = 0;
+    cta.addEventListener('keydown', (e)=> { if(e.key === 'Enter') startConversion('hero-cta-key'); });
 
-    // support button
-    supportBtn && supportBtn.addEventListener('click', ()=> {
-      if(tg){ try{ tg.openTelegram(); }catch(e){ window.open('https://t.me/LuckyLuna_support', '_blank'); } }
-      else window.open('https://t.me/LuckyLuna_support', '_blank');
-    });
-
-    // small marquee / ticker initialization
-    // (already rendered above when main content shows)
-    // Show tip box briefly on page load too (gentle nudge)
-    setTimeout(()=> { tipBox.style.display='block'; setTimeout(()=> tipBox.style.display='none', 4200); }, 7000);
-
-    // accessibility: allow spinning by keyboard when focus on spinBtn
-    spinBtn.tabIndex = 0;
-
-    // entrance animations
-    gsap.from('header h1', { y:-20, autoAlpha:0, duration:0.9, ease:'power3.out' });
-    gsap.from('.glass', { stagger:0.03, y:10, autoAlpha:0, duration:0.7, ease:'power2.out' });
-
-    // small analytics/log
-    console.log('SUPERNATURAL landing ready — Affiliate:', AFFILIATE_LINK);
+    // Small console note
+    console.log('Luna landing initialized — Affiliate:', AFFILIATE_LINK);
   </script>
 </body>
 </html>
