@@ -3,148 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LuckyLuna x 1XBET | The Full Package</title>
+    <title>LuckyLuna x 1XBET | VIP Hub</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        :root { --p: #0f172a; --s: #ec4899; --g: #f59e0b; }
+        :root { --p: #0f172a; --s: #ec4899; --g: #f59e0b; --tg: #0088cc; }
         body { background: var(--p); color: white; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
         .font-header { font-family: 'Cinzel', serif; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gold-shimmer { background: linear-gradient(90deg, #f59e0b, #fffbeb, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; background-size: 200% auto; }
+        .gold-text { background: linear-gradient(90deg, #f59e0b, #fffbeb, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; background-size: 200% auto; }
         @keyframes shine { to { background-position: 200% center; } }
-        .step-active { border-left: 4px solid var(--s); background: rgba(236, 72, 153, 0.1); }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .open .accordion-content { max-height: 1000px; }
+        .tg-gradient { background: linear-gradient(135deg, #2AABEE, #229ED9); }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased select-none">
 
-    <div class="fixed top-20 right-4 z-[100]">
-        <div class="glass p-1 rounded-full flex space-x-1 border border-pink-500/30">
-            <button id="setUSD" class="px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500">USD</button>
-            <button id="setAMD" class="px-3 py-1 rounded-full text-[10px] font-bold text-gray-400">AMD</button>
-        </div>
-    </div>
-
-    <nav class="p-5 flex justify-between items-center bg-[#0f172a]/90 sticky top-0 z-50 border-b border-white/5">
+    <nav class="p-5 flex justify-between items-center bg-[#0f172a]/95 sticky top-0 z-50 border-b border-white/5">
         <div class="flex flex-col">
-            <span class="font-header text-xl tracking-widest gold-shimmer">LuckyLuna</span>
-            <span class="text-[8px] uppercase tracking-[0.3em] text-pink-400 font-bold">Verified 1XBET Offer</span>
+            <span class="font-header text-xl tracking-widest gold-text">LuckyLuna</span>
+            <span class="text-[8px] uppercase tracking-[0.3em] text-pink-400 font-bold">Official Elite Hub</span>
+        </div>
+        <div class="flex items-center space-x-2 glass px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+            <span class="text-[9px] font-bold text-gray-400">USD PORTAL</span>
         </div>
     </nav>
 
-    <section class="py-10 px-8 text-center">
-        <h1 class="text-4xl font-header font-bold mb-4">Welcome <br><span class="gold-shimmer">Grand Package</span></h1>
-        <div class="inline-block glass px-6 py-3 rounded-2xl border-pink-500/20">
-            <span class="text-2xl font-black text-white" id="mainTotal">~ $2,360</span>
-            <span class="block text-[10px] uppercase tracking-widest text-pink-500 font-bold">+ 150 Free Spins</span>
-        </div>
+    <section class="py-12 px-8 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-pink-500/5 blur-3xl -z-10"></div>
+        <h1 class="text-4xl font-header font-bold mb-4 animate__animated animate__zoomIn">
+            CLAIM YOUR <br><span class="gold-text">$2,370</span> PACKAGE
+        </h1>
+        <p class="text-[10px] text-gray-400 uppercase tracking-[0.4em] mb-10">Exclusive Welcome Reward</p>
     </section>
 
-    <section class="px-6 mb-12">
-        <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">How to Claim Your Wealth</h3>
-        <div class="space-y-4">
-            <div class="glass p-5 rounded-2xl flex items-start space-x-4 border-l-4 border-pink-500">
-                <div class="bg-pink-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">1</div>
-                <div>
-                    <p class="font-bold text-sm">Register & Verify</p>
-                    <p class="text-[10px] text-gray-400">Fill your profile and activate your phone number. This is mandatory!</p>
-                </div>
+    <section class="px-6 mb-10">
+        <div class="grid grid-cols-3 gap-2">
+            <div class="glass p-3 rounded-2xl text-center border-b-2 border-pink-500/50">
+                <span class="text-xl block mb-1">📝</span>
+                <span class="text-[8px] font-bold uppercase text-gray-400 leading-none">Register Account</span>
             </div>
-            <div class="glass p-5 rounded-2xl flex items-start space-x-4">
-                <div class="bg-gray-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">2</div>
-                <div>
-                    <p class="font-bold text-sm">Opt-In</p>
-                    <p class="text-[10px] text-gray-400">Go to Account Settings and select "Casino Bonus" or "Sports Bonus".</p>
-                </div>
+            <div class="glass p-3 rounded-2xl text-center border-b-2 border-amber-500/50">
+                <span class="text-xl block mb-1">⚙️</span>
+                <span class="text-[8px] font-bold uppercase text-gray-400 leading-none">Opt-In Bonus</span>
             </div>
-            <div class="glass p-5 rounded-2xl flex items-start space-x-4">
-                <div class="bg-gray-700 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">3</div>
-                <div>
-                    <p class="font-bold text-sm">First Deposit</p>
-                    <p class="text-[10px] text-gray-400">Deposit at least <span class="val-minDep1">$10.50</span>. Bonus is automatic!</p>
-                </div>
+            <div class="glass p-3 rounded-2xl text-center border-b-2 border-green-500/50">
+                <span class="text-xl block mb-1">💰</span>
+                <span class="text-[8px] font-bold uppercase text-gray-400 leading-none">Get $2,370</span>
             </div>
         </div>
     </section>
 
     <section class="px-6 mb-12">
-        <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Bonus Breakdown</h3>
-        <div class="grid grid-cols-2 gap-3">
-            <div class="glass p-4 rounded-3xl text-center border-t border-pink-500/30">
-                <p class="text-[9px] font-bold text-pink-500 mb-1">1ST DEPOSIT</p>
-                <p class="text-lg font-bold">100%</p>
-                <p class="text-[10px] text-gray-400">Up to <span class="val-max1">$470</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 30 FS</p>
+        <div class="tg-gradient p-6 rounded-[2.5rem] shadow-xl relative overflow-hidden group active:scale-95 transition-all cursor-pointer" onclick="tg.openTelegramLink('https://t.me/LuckyLunaChannel')">
+            <div class="absolute right-[-20px] top-[-20px] opacity-10 rotate-12">
+                <svg width="150" height="150" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
             </div>
-            <div class="glass p-4 rounded-3xl text-center">
-                <p class="text-[9px] font-bold text-pink-500 mb-1">2ND DEPOSIT</p>
-                <p class="text-lg font-bold">50%</p>
-                <p class="text-[10px] text-gray-400">Up to <span class="val-max2">$525</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 35 FS</p>
-            </div>
-            <div class="glass p-4 rounded-3xl text-center">
-                <p class="text-[9px] font-bold text-pink-500 mb-1">3RD DEPOSIT</p>
-                <p class="text-lg font-bold">25%</p>
-                <p class="text-[10px] text-gray-400">Up to <span class="val-max3">$655</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 40 FS</p>
-            </div>
-            <div class="glass p-4 rounded-3xl text-center">
-                <p class="text-[9px] font-bold text-pink-500 mb-1">4TH DEPOSIT</p>
-                <p class="text-lg font-bold">25%</p>
-                <p class="text-[10px] text-gray-400">Up to <span class="val-max4">$710</span></p>
-                <p class="text-[9px] mt-2 font-bold text-yellow-500">+ 45 FS</p>
+            <div class="relative z-10">
+                <h3 class="font-bold text-white text-lg">Join Luna's Telegram</h3>
+                <p class="text-white/80 text-[10px] uppercase font-bold tracking-widest mb-4">Daily Bonus Alerts & Community</p>
+                <div class="inline-flex items-center space-x-2 bg-white text-blue-600 px-4 py-2 rounded-full text-[10px] font-black uppercase">
+                    <span>Follow Channel</span>
+                    <span>→</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="px-6 mb-32">
-        <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.3em] mb-6">Terms & Conditions</h3>
-        
+    <section class="px-6 mb-12">
+        <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em] mb-6 text-center">Reward Structure</h3>
+        <div class="space-y-3">
+            <div class="glass p-4 rounded-2xl flex justify-between items-center border-l-2 border-pink-500">
+                <span class="text-[10px] font-bold uppercase">1st Deposit</span>
+                <span class="text-sm font-bold text-white">100% Up to <span class="text-pink-500">$475</span></span>
+            </div>
+            <div class="glass p-4 rounded-2xl flex justify-between items-center">
+                <span class="text-[10px] font-bold uppercase">2nd Deposit</span>
+                <span class="text-sm font-bold text-white">50% Up to <span class="text-pink-500">$530</span></span>
+            </div>
+            <div class="glass p-4 rounded-2xl flex justify-between items-center">
+                <span class="text-[10px] font-bold uppercase">3rd Deposit</span>
+                <span class="text-sm font-bold text-white">25% Up to <span class="text-pink-500">$660</span></span>
+            </div>
+            <div class="glass p-4 rounded-2xl flex justify-between items-center">
+                <span class="text-[10px] font-bold uppercase">4th Deposit</span>
+                <span class="text-sm font-bold text-white">25% Up to <span class="text-pink-500">$715</span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 mb-40">
+        <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em] mb-6 text-center">Player Assistance</h3>
         <div class="space-y-2">
             <div class="glass rounded-2xl overflow-hidden" onclick="this.classList.toggle('open')">
-                <div class="p-5 flex justify-between items-center cursor-pointer">
-                    <span class="text-xs font-bold uppercase tracking-widest">🎰 Casino Rules</span>
-                    <span class="text-pink-500">+</span>
+                <div class="p-4 flex justify-between items-center">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">❓ How do I get my 150 Spins?</span>
+                    <span class="text-pink-500 text-lg">↓</span>
                 </div>
-                <div class="accordion-content bg-black/20">
-                    <div class="p-5 text-[10px] text-gray-400 space-y-3 leading-relaxed">
-                        <p>• <b>Wagering:</b> x35 within 7 days.</p>
-                        <p>• <b>Max Bet:</b> <span class="val-maxBet">$5.20</span> while wagering.</p>
-                        <p>• <b>1xGames Bonus:</b> Bets in 1xGames section count TWICE (except Blackjack).</p>
-                        <p>• <b>FS Games:</b> Reliquary of Ra (1st/2nd), Juicy Fruits (3rd), Rich of the Mermaid (4th).</p>
-                        <p>• <b>Restriction:</b> Crypto accounts (BTC, ETH, etc.) are excluded from bonuses.</p>
+                <div class="accordion-content bg-white/5 text-[10px] text-gray-400 p-0">
+                    <div class="p-4">
+                        Free spins are awarded after your deposit bonus is wagered. They are valid for <i>Reliquary of Ra</i>, <i>Juicy Fruits</i>, and <i>Rich of the Mermaid</i>.
                     </div>
                 </div>
             </div>
-
             <div class="glass rounded-2xl overflow-hidden" onclick="this.classList.toggle('open')">
-                <div class="p-5 flex justify-between items-center cursor-pointer">
-                    <span class="text-xs font-bold uppercase tracking-widest">⚽ Sports Rules (100% Bonus)</span>
-                    <span class="text-pink-500">+</span>
+                <div class="p-4 flex justify-between items-center">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">💸 Withdrawal Time?</span>
+                    <span class="text-pink-500 text-lg">↓</span>
                 </div>
-                <div class="accordion-content bg-black/20">
-                    <div class="p-5 text-[10px] text-gray-400 space-y-3 leading-relaxed">
-                        <p>• <b>Max Bonus:</b> <span class="val-sportMax">$157</span> (60,000 AMD).</p>
-                        <p>• <b>Min Deposit:</b> <span class="val-sportMin">$1.10</span> (420 AMD).</p>
-                        <p>• <b>Wagering:</b> 5x in Accumulator bets.</p>
-                        <p>• <b>Odds:</b> Each Acca needs 3+ events with odds 1.40 or higher.</p>
-                        <p>• <b>Validity:</b> Use within 30 days of registration.</p>
+                <div class="accordion-content bg-white/5 text-[10px] text-gray-400 p-0">
+                    <div class="p-4">
+                        1XBET offers instant withdrawals. Usually, funds reach your account within 15-30 minutes after approval.
+                    </div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl overflow-hidden" onclick="this.classList.toggle('open')">
+                <div class="p-4 flex justify-between items-center">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">📜 Important Rules</span>
+                    <span class="text-pink-500 text-lg">↓</span>
+                </div>
+                <div class="accordion-content bg-white/5 text-[10px] text-gray-400 p-0">
+                    <div class="p-4 space-y-2">
+                        <p>• Minimum deposit to start: $10.50.</p>
+                        <p>• Wagering: x35 within 7 days.</p>
+                        <p>• Activate your phone number before depositing!</p>
+                        <p>• No bonuses for Cryptocurrency accounts.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent z-[60]">
-        <button id="claimNow" class="w-full bg-gradient-to-r from-pink-500 to-pink-700 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-[0_20px_50px_rgba(236,72,153,0.4)] animate__animated animate__pulse animate__infinite">
-            Start Winning Now
+    <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#0f172a] via-[#0f172a] to-transparent z-[60]">
+        <button id="finalCta" class="w-full bg-gradient-to-r from-pink-500 to-pink-700 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm shadow-[0_15px_50px_rgba(236,72,153,0.4)] active:scale-95 transition-all">
+            REGISTER & CLAIM $2,370
         </button>
     </div>
 
@@ -152,53 +151,24 @@
         const tg = window.Telegram.WebApp;
         tg.expand();
         tg.ready();
+        tg.setHeaderColor('#0f172a');
 
-        const data = {
-            usd: {
-                total: "~ $2,360",
-                min1: "$10.50",
-                max1: "$470", max2: "$525", max3: "$655", max4: "$710",
-                mBet: "$5.20",
-                sMax: "$157", sMin: "$1.10"
-            },
-            amd: {
-                total: "900,000 AMD",
-                min1: "4,000 AMD",
-                max1: "180,000 AMD", max2: "200,000 AMD", max3: "250,000 AMD", max4: "270,000 AMD",
-                mBet: "2,000 AMD",
-                sMax: "60,000 AMD", sMin: "420 AMD"
-            }
-        };
-
-        function updateCurrency(mode) {
-            const currency = data[mode];
-            document.getElementById('mainTotal').innerText = currency.total;
-            document.querySelectorAll('.val-minDep1').forEach(el => el.innerText = currency.min1);
-            document.querySelectorAll('.val-max1').forEach(el => el.innerText = currency.max1);
-            document.querySelectorAll('.val-max2').forEach(el => el.innerText = currency.max2);
-            document.querySelectorAll('.val-max3').forEach(el => el.innerText = currency.max3);
-            document.querySelectorAll('.val-max4').forEach(el => el.innerText = currency.max4);
-            document.querySelectorAll('.val-maxBet').forEach(el => el.innerText = currency.mBet);
-            document.querySelectorAll('.val-sportMax').forEach(el => el.innerText = currency.sMax);
-            document.querySelectorAll('.val-sportMin').forEach(el => el.innerText = currency.sMin);
-
-            // Toggle active button style
-            document.getElementById('setUSD').className = mode === 'usd' ? 'px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500' : 'px-3 py-1 rounded-full text-[10px] font-bold text-gray-400';
-            document.getElementById('setAMD').className = mode === 'amd' ? 'px-3 py-1 rounded-full text-[10px] font-bold bg-pink-500' : 'px-3 py-1 rounded-full text-[10px] font-bold text-gray-400';
-            
-            tg.HapticFeedback.selectionChanged();
-        }
-
-        document.getElementById('setUSD').onclick = () => updateCurrency('usd');
-        document.getElementById('setAMD').onclick = () => updateCurrency('amd');
-
-        document.getElementById('claimNow').onclick = () => {
-            confetti({ particleCount: 200, spread: 80, origin: { y: 0.8 }, colors: ['#ec4899', '#f59e0b'] });
+        function triggerRegister() {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.8 }, colors: ['#ec4899', '#f59e0b', '#ffffff'] });
             tg.HapticFeedback.notificationOccurred('success');
             setTimeout(() => {
-                tg.openLink("https://1xbet.com/en?tag=d_5038058m_1599c_");
-            }, 1000);
-        };
+                // YOUR AFFILIATE LINK
+                tg.openLink("https://1xbet.com/registration/?tag=d_YOUR_PLAYER_ID");
+            }, 800);
+        }
+
+        document.getElementById('finalCta').onclick = triggerRegister;
+
+        // Native Telegram Main Button
+        tg.MainButton.setText("GET STARTED NOW");
+        tg.MainButton.setParams({ color: '#ec4899' });
+        tg.MainButton.show();
+        tg.MainButton.onClick(triggerRegister);
     </script>
 </body>
 </html>
