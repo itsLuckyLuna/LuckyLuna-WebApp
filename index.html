@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lucky Luna — Join 1XBET (Code: LLUNA1X)</title>
-  <meta name="description" content="Join 1XBET via Lucky Luna. Use promo code LLUNA1X. Telegram onboarding, quick signup, curated promos." />
+  <title>Lucky Luna — Exclusive 1XBET Promo Code: LLUNA1X</title>
+  <meta name="description" content="Unlock exclusive bonuses on 1XBET with promo code LLUNA1X via Lucky Luna. Personal Telegram support, curated tips & fast signup." />
   <meta name="theme-color" content="#07101a" />
 
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-  <!-- Confetti JS for celebrations -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
-  <!-- Particles JS for background effects -->
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
@@ -26,486 +26,301 @@
       --card-bg: rgba(255,255,255,0.03);
       --muted: rgba(230,242,255,0.72);
     }
-    html,body{height:100%}
+    html,body{height:100%; margin:0;}
     body{
-      margin:0;
       background:
         radial-gradient(700px 400px at 10% 20%, rgba(19,159,255,0.06), transparent 6%),
         radial-gradient(600px 350px at 90% 80%, rgba(155,89,255,0.04), transparent 8%),
         linear-gradient(180deg,var(--bg-dark), #07101a);
       color:#eaf2ff;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.35;
       overflow-x: hidden;
     }
 
-    /* layout */
-    .container { max-width:1140px; margin:32px auto; padding:16px; }
+    .container { max-width:1140px; margin:0 auto; padding:16px; }
     .glass { background:var(--card-bg); border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(6px); border-radius:14px; }
     .btn-cta {
       background: linear-gradient(90deg, var(--luna-blue), var(--luna-purple));
-      padding:10px 14px; border-radius:12px; color:#041523; font-weight:700;
-      transition: transform .16s ease, box-shadow .16s ease;
-      box-shadow: 0 10px 32px rgba(19,159,255,0.06);
+      padding:14px 24px; border-radius:12px; color:#041523; font-weight:700; font-size:1.1rem;
+      box-shadow: 0 10px 32px rgba(19,159,255,0.12);
+      transition: all .2s;
     }
-    .btn-cta:hover { transform:translateY(-4px); box-shadow:0 22px 60px rgba(155,89,255,0.12); }
+    .btn-cta:hover { transform:scale(1.05); box-shadow:0 20px 40px rgba(155,89,255,0.2); }
 
-    .btn-ghost { border:1px solid rgba(255,255,255,0.06); padding:9px 12px; border-radius:12px; color:var(--muted); background:transparent; }
-    .badge { background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; color:var(--muted); }
+    .btn-ghost { border:1px solid rgba(255,255,255,0.1); padding:12px 20px; border-radius:12px; color:var(--muted); background:transparent; transition: all .2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,0.05); }
 
-    /* animated accent */
-    .accent-gradient {
-      background: linear-gradient(90deg,var(--luna-blue),var(--luna-purple),var(--luna-gold));
-      background-size:200% 200%;
-      animation: shift 6s linear infinite;
-      border-radius:999px;
-      height:6px;
-      width:100%;
-    }
+    .badge { background: rgba(255,255,255,0.03); padding:8px 14px; border-radius:999px; font-weight:700; font-size:14px; color:var(--muted); }
+
+    .accent-gradient { background: linear-gradient(90deg,var(--luna-blue),var(--luna-purple),var(--luna-gold)); background-size:200% 200%; animation: shift 6s linear infinite; height:6px; border-radius:999px; }
     @keyframes shift { 0% { background-position:0% 50% } 50% { background-position:100% 50% } 100% { background-position:0% 50% } }
 
-    /* floating ornament */
-    .orb {
-      position:absolute; right:-48px; top:-48px; width:160px; height:160px;
-      border-radius:999px; filter: blur(8px);
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), transparent 30%),
-                  linear-gradient(180deg, rgba(155,89,255,0.12), rgba(19,159,255,0.08));
-      animation: floaty 6s ease-in-out infinite;
-      pointer-events:none;
-      opacity:0.95;
-    }
-    @keyframes floaty { 0% { transform: translateY(0) } 50% { transform: translateY(-10px) } 100% { transform: translateY(0) } }
+    .orb { position:absolute; right:-60px; top:-60px; width:200px; height:200px; border-radius:999px; filter: blur(12px); background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 40%), linear-gradient(180deg, rgba(155,89,255,0.15), rgba(19,159,255,0.1)); animation: floaty 8s ease-in-out infinite; pointer-events:none; opacity:0.9; }
+    @keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-15px) } }
 
-    /* tiny motion touches */
-    .card-hover { transition: transform .22s ease, box-shadow .22s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 22px 60px rgba(2,6,23,0.6); }
-    .reveal { opacity:0; transform: translateY(12px); transition: all .6s cubic-bezier(.2,.9,.2,1); }
+    .card-hover { transition: transform .3s, box-shadow .3s; }
+    .card-hover:hover { transform: translateY(-10px); box-shadow: 0 25px 70px rgba(2,6,23,0.7); }
+
+    .reveal { opacity:0; transform: translateY(20px); transition: all .8s cubic-bezier(.2,.9,.2,1); }
     .reveal.visible { opacity:1; transform: translateY(0); }
 
-    /* ticker */
-    .ticker { display:flex; gap:14px; align-items:center; font-size:13px; color:var(--muted); overflow: hidden; }
-    .ticker-item { white-space:nowrap; padding:6px 8px; border-radius:999px; background: rgba(255,255,255,0.02); animation: ticker-slide 10s linear infinite; }
-    @keyframes ticker-slide { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+    .ticker-wrapper { display:flex; animation: ticker-scroll 25s linear infinite; }
+    .ticker-item { white-space:nowrap; padding:8px 16px; border-radius:999px; background: rgba(255,255,255,0.02); margin-right:20px; flex-shrink:0; }
+    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* particles container */
     #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
 
-    /* spin wheel */
-    .wheel-container { position: relative; width: 200px; height: 200px; margin: 0 auto; }
-    .wheel { width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(var(--luna-blue) 0% 25%, var(--luna-purple) 25% 50%, var(--luna-gold) 50% 75%, var(--luna-blue) 75% 100%); transition: transform 3s ease-out; }
-    .wheel-pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid white; }
+    .partner-logo { height:50px; filter: brightness(0) invert(1) opacity(0.8); transition: all .3s; }
+    .partner-logo:hover { opacity:1; transform:scale(1.1); }
 
-    /* responsive */
-    @media (max-width:900px){
-      .orb { display:none; }
-    }
+    @media (max-width:900px){ .orb { display:none; } }
   </style>
 </head>
 <body>
-  <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <div class="container">
+  <div class="container pt-8">
 
-    <!-- STICKY NAV -->
-    <header class="flex items-center justify-between mb-4 sticky top-0 z-50 bg-[var(--bg-dark)] glass p-4 rounded-b-xl">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="Lucky Luna" class="h-12 w-12 rounded-full animate-spin-slow" onerror="this.style.display='none'">
-        <div>
-          <div class="text-xl font-extrabold animate-pulse">Lucky Luna</div>
-          <div class="text-xs" style="color:var(--muted)">1XBET Affiliate</div>
-        </div>
-      </div>
+    <!-- HERO - Above the fold prioritized -->
+    <section class="glass relative overflow-hidden p-8 rounded-2xl animate__animated animate__fadeIn">
+      <div class="orb"></div>
 
-      <div class="flex items-center gap-3">
-        <button id="navRegister" class="btn-cta">Register</button>
-        <button id="navTelegram" class="btn-ghost">Telegram</button>
-      </div>
-    </header>
+      <div class="text-center md:text-left md:flex md:items-center md:justify-between gap-8">
+        <div class="md:max-w-lg">
+          <div class="badge inline-block animate__animated animate__bounceIn">Exclusive Offer</div>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+            Unlock Bigger Bonuses on 1XBET<br>
+            <span class="text-[var(--luna-gold)]">with Code LLUNA1X</span>
+          </h1>
+          <p class="mt-4 text-lg" style="color:var(--muted)">
+            Exclusive welcome bonus + personal Telegram support for fast onboarding & daily curated tips.
+          </p>
 
-    <!-- HERO (with enhanced animations) -->
-    <section class="glass relative overflow-hidden p-6 rounded-xl animate__animated animate__fadeIn" role="region" aria-label="Hero">
-      <div class="orb" aria-hidden="true"></div>
-
-      <div class="flex flex-col lg:flex-row lg:items-center gap-6">
-        <div style="flex:1; min-width:220px">
-          <div class="flex items-center gap-3">
-            <div class="badge animate__animated animate__bounceIn">Exclusive</div>
-            <div class="text-xs" style="color:var(--muted)">Promo code</div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <button id="heroRegister" class="btn-cta text-xl">Register & Claim Bonus</button>
+            <button id="heroTelegram" class="btn-ghost text-lg">Join Telegram Support</button>
           </div>
 
-          <h1 class="text-3xl font-extrabold mt-3 animate__animated animate__zoomIn">Join 1XBET with Lucky Luna</h1>
-          <p class="mt-2" style="color:var(--muted)">Fast signup — use code <strong>LLUNA1X</strong>. Telegram support & curated promos.</p>
-
-          <div class="mt-4 flex gap-3">
-            <button id="heroRegister" class="btn-cta">Register (1XBET)</button>
-            <button id="copyCode" class="btn-ghost">Copy code</button>
-            <button id="heroTelegram" class="btn-ghost">Join Telegram</button>
-          </div>
+          <button id="copyCode" class="mt-4 text-sm underline" style="color:var(--muted)">Copy code LLUNA1X →</button>
         </div>
 
-        <div class="w-full lg:w-96">
-          <div class="glass p-4 rounded-lg animate__animated animate__flipInX">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-xs" style="color:var(--muted)">Your code</div>
-                <div class="text-2xl font-extrabold">LLUNA1X</div>
-              </div>
-              <div class="text-right">
-                <div class="text-xs" style="color:var(--muted)">Affiliate</div>
-                <div class="font-semibold">Lucky Luna</div>
-              </div>
-            </div>
-
+        <div class="mt-8 md:mt-0">
+          <div class="glass p-6 rounded-xl">
+            <div class="text-4xl font-extrabold text-center">LLUNA1X</div>
             <div class="accent-gradient mt-4"></div>
-            <div class="mt-3 flex items-center justify-between" style="color:var(--muted); font-size:13px">
-              <div>Tracked affiliate link</div>
-              <div>SSL secure</div>
-            </div>
+            <p class="text-center mt-4 text-sm" style="color:var(--muted)">Tracked affiliate • SSL secure • Instant access</p>
           </div>
 
-          <!-- enhanced ticker with infinite scroll -->
-          <div class="mt-3 glass p-3 rounded-lg overflow-hidden">
-            <div class="ticker" id="promoTicker" aria-hidden="false" style="width: 200%; display: flex;">
-              <div class="ticker-item">Welcome bonus live</div>
-              <div class="ticker-item">Top odds — football</div>
-              <div class="ticker-item">Telegram onboarding open</div>
-              <div class="ticker-item">Exclusive tips daily</div>
-              <div class="ticker-item">Win big with Luna</div>
-              <!-- Duplicate for seamless loop -->
-              <div class="ticker-item">Welcome bonus live</div>
-              <div class="ticker-item">Top odds — football</div>
-              <div class="ticker-item">Telegram onboarding open</div>
-              <div class="ticker-item">Exclusive tips daily</div>
-              <div class="ticker-item">Win big with Luna</div>
+          <div class="mt-6 glass p-4 rounded-xl overflow-hidden">
+            <div class="flex">
+              <div class="ticker-wrapper">
+                <div class="ticker-item">Massive Welcome Bonus</div>
+                <div class="ticker-item">High Odds Football</div>
+                <div class="ticker-item">24/7 Live Support</div>
+                <div class="ticker-item">Crash Games & Slots</div>
+                <div class="ticker-item">Exclusive Tips Daily</div>
+                <!-- Duplicate -->
+                <div class="ticker-item">Massive Welcome Bonus</div>
+                <div class="ticker-item">High Odds Football</div>
+                <div class="ticker-item">24/7 Live Support</div>
+                <div class="ticker-item">Crash Games & Slots</div>
+                <div class="ticker-item">Exclusive Tips Daily</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TRUST ROW with hover effects -->
-    <section class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
-      <div class="glass p-4 rounded-lg flex items-center justify-between card-hover reveal animate__animated animate__fadeInLeft">
-        <div>
-          <div class="font-semibold">Trusted link</div>
-          <div class="text-xs" style="color:var(--muted)">Tracked & verified</div>
-        </div>
-        <img src="assets/secure.svg" alt="secure" class="h-8" onerror="this.style.display='none'">
+    <!-- TRUST SIGNALS -->
+    <section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass p-6 text-center card-hover reveal">
+        <div class="text-2xl font-bold">Trusted Link</div>
+        <p class="mt-2 text-sm" style="color:var(--muted)">Official tracked affiliate</p>
       </div>
-
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__fadeInUp">
-        <div class="font-semibold">Telegram help</div>
-        <div class="text-xs" style="color:var(--muted)">Onboarding & promos</div>
+      <div class="glass p-6 text-center card-hover reveal">
+        <div class="text-2xl font-bold">Personal Help</div>
+        <p class="mt-2 text-sm" style="color:var(--muted)">Telegram onboarding & tips</p>
       </div>
-
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__fadeInRight">
-        <div class="font-semibold">Responsible play</div>
-        <div class="text-xs" style="color:var(--muted)">18+. Set limits. Seek help if needed.</div>
+      <div class="glass p-6 text-center card-hover reveal">
+        <div class="text-2xl font-bold">Responsible Gaming</div>
+        <p class="mt-2 text-sm" style="color:var(--muted)">18+ • Play safe</p>
       </div>
     </section>
 
-    <!-- TWO-COLUMN: BENEFITS + BONUS ESTIMATOR + NEW SPIN WHEEL -->
-    <section class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <!-- benefits (enhanced with bullets animation) -->
-      <div class="glass p-5 rounded-lg reveal card-hover">
-        <div class="flex items-center justify-between">
-          <div class="font-bold">Why sign up here</div>
-          <div class="text-xs" style="color:var(--muted)">Short & clear</div>
-        </div>
-        <ul class="mt-3 text-sm" style="color:var(--muted);">
-          <li class="mt-2 animate__animated animate__fadeIn" style="animation-delay: 0.2s;">• Tracked affiliate link → my onboarding support.</li>
-          <li class="mt-2 animate__animated animate__fadeIn" style="animation-delay: 0.4s;">• Telegram alerts for promos and curated tips.</li>
-          <li class="mt-2 animate__animated animate__fadeIn" style="animation-delay: 0.6s;">• Fast signup — remember: enter <strong>LLUNA1X</strong>.</li>
-          <li class="mt-2 animate__animated animate__fadeIn" style="animation-delay: 0.8s;">• Exclusive community events & giveaways.</li>
+    <!-- BENEFITS + BONUS ESTIMATOR -->
+    <section class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="glass p-8 rounded-2xl card-hover reveal">
+        <h2 class="text-3xl font-bold">Why Choose Lucky Luna</h2>
+        <ul class="mt-6 space-y-4 text-lg" style="color:var(--muted)">
+          <li>• Exclusive higher bonus with code <strong>LLUNA1X</strong></li>
+          <li>• Direct Telegram support for deposits & questions</li>
+          <li>• Daily hand-picked tips (no spam)</li>
+          <li>• Access to top odds, live betting & 1xGames</li>
         </ul>
       </div>
 
-      <!-- estimator with spin wheel interactive -->
-      <div class="glass p-5 rounded-lg reveal card-hover" aria-label="Bonus estimator">
-        <div class="font-bold">Bonus Estimator & Luck Spinner</div>
-        <div class="text-xs mt-1" style="color:var(--muted)">Illustrative only - Spin for extra fun!</div>
+      <div class="glass p-8 rounded-2xl card-hover reveal">
+        <h2 class="text-3xl font-bold">Bonus Estimator</h2>
+        <p class="mt-2 text-sm" style="color:var(--muted)">Typical 100-200% first deposit match</p>
 
-        <div class="mt-4">
-          <div class="flex items-center justify-between text-sm" style="color:var(--muted)">
-            <div>Deposit</div><div id="depText" class="font-semibold">$100</div>
-          </div>
-          <input id="depRange" type="range" min="10" max="2000" value="100" class="w-full mt-2">
+        <div class="mt-6">
+          <label class="block text-sm" style="color:var(--muted)">Deposit Amount</label>
+          <input id="depRange" type="range" min="10" max="2000" value="100" class="w-full">
+          <div class="text-right font-bold" id="depText">$100</div>
 
-          <div class="flex items-center justify-between text-sm mt-3" style="color:var(--muted)">
-            <div>Bonus %</div><div id="pctText" class="font-semibold">150%</div>
-          </div>
-          <input id="pctRange" type="range" min="100" max="200" value="150" class="w-full mt-2">
+          <label class="block mt-6 text-sm" style="color:var(--muted)">Bonus Percentage</label>
+          <input id="pctRange" type="range" min="100" max="200" value="150" class="w-full">
+          <div class="text-right font-bold" id="pctText">150%</div>
 
-          <div class="mt-4 flex items-center justify-between">
-            <div class="text-sm" style="color:var(--muted)">Estimated bonus</div>
-            <div id="bonusText" class="text-lg font-extrabold">$150</div>
+          <div class="mt-8 text-center">
+            <div class="text-sm" style="color:var(--muted)">Your Estimated Bonus</div>
+            <div id="bonusText" class="text-5xl font-extrabold text-[var(--luna-gold)]">$150</div>
           </div>
 
-          <!-- New: Spin Wheel for simulated luck -->
-          <div class="mt-6">
-            <div class="wheel-container">
-              <div id="wheel" class="wheel"></div>
-              <div class="wheel-pointer"></div>
-            </div>
-            <button id="spinWheel" class="btn-cta mt-4 w-full">Spin for Luck!</button>
-            <div id="spinResult" class="text-center mt-2 font-semibold" style="color:var(--luna-gold)"></div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <button id="estRegister" class="btn-cta">Register</button>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <button id="estRegister" class="btn-cta">Claim Now</button>
             <button id="estTelegram" class="btn-ghost">Telegram</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COMPACT TESTIMONIALS / SOCIAL PROOF with carousel effect -->
-    <section class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__slideInLeft">
-        <div class="font-semibold">“Quick help with my first deposit”</div>
-        <div class="text-xs mt-2" style="color:var(--muted)">— Anna</div>
-      </div>
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__slideInRight">
-        <div class="font-semibold">“Clear tips, no spam”</div>
-        <div class="text-xs mt-2" style="color:var(--muted)">— Mark</div>
-      </div>
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__slideInLeft">
-        <div class="font-semibold">“Love the daily promos!”</div>
-        <div class="text-xs mt-2" style="color:var(--muted)">— Alex</div>
-      </div>
-      <div class="glass p-4 rounded-lg card-hover reveal animate__animated animate__slideInRight">
-        <div class="font-semibold">“Best affiliate experience”</div>
-        <div class="text-xs mt-2" style="color:var(--muted)">— Sarah</div>
+    <!-- SOCIAL PROOF / TESTIMONIALS -->
+    <section class="mt-8 glass p-8 rounded-2xl reveal">
+      <h2 class="text-3xl font-bold text-center">What Players Say</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <p class="font-semibold italic">“Got instant help with my first deposit & bigger bonus!”</p>
+          <p class="mt-4 text-sm" style="color:var(--muted)">— Jake, won 3x on football</p>
+        </div>
+        <div class="text-center">
+          <p class="font-semibold italic">“Daily tips are gold – no spam, real wins”</p>
+          <p class="mt-4 text-sm" style="color:var(--muted)">— Maria</p>
+        </div>
+        <div class="text-center">
+          <p class="font-semibold italic">“Best affiliate support I've used”</p>
+          <p class="mt-4 text-sm" style="color:var(--muted)">— Alex</p>
+        </div>
       </div>
     </section>
 
-    <!-- NEW: FAQ Section with Accordion -->
-    <section class="mt-6 glass p-5 rounded-lg reveal card-hover">
-      <div class="font-bold">Frequently Asked Questions</div>
-      <div class="mt-4">
-        <details class="mb-2">
-          <summary class="font-semibold cursor-pointer">How do I use the promo code?</summary>
-          <p class="text-sm" style="color:var(--muted)">Enter LLUNA1X during signup on 1XBET for exclusive bonuses.</p>
+    <!-- PARTNERS -->
+    <section class="mt-8 glass p-8 rounded-2xl reveal text-center">
+      <h2 class="text-3xl font-bold">Official 1XBET Partners</h2>
+      <div class="mt-8 flex flex-wrap justify-center gap-12 items-center opacity-90">
+        <!-- Replace placeholders with real logos if available -->
+        <img src="https://via.placeholder.com/160x60/139fff/ffffff?text=FC+Barcelona" alt="FC Barcelona" class="partner-logo">
+        <img src="https://via.placeholder.com/160x60/9b59ff/ffffff?text=Paris+SG" alt="Paris SG" class="partner-logo">
+        <img src="https://via.placeholder.com/160x60/ffd400/000000?text=Liverpool+FC" alt="Liverpool FC" class="partner-logo">
+        <img src="https://via.placeholder.com/160x60/139fff/ffffff?text=CAF" alt="CAF" class="partner-logo">
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-8 glass p-8 rounded-2xl reveal">
+      <h2 class="text-3xl font-bold">Quick FAQ</h2>
+      <div class="mt-6 space-y-4">
+        <details class="bg-[rgba(255,255,255,0.02)] p-4 rounded-lg">
+          <summary class="font-bold cursor-pointer">How to use LLUNA1X?</summary>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Enter during registration or in your profile promo section.</p>
         </details>
-        <details class="mb-2">
-          <summary class="font-semibold cursor-pointer">What is Telegram onboarding?</summary>
-          <p class="text-sm" style="color:var(--muted)">Join our channel for guided setup and daily tips.</p>
+        <details class="bg-[rgba(255,255,255,0.02)] p-4 rounded-lg">
+          <summary class="font-bold cursor-pointer">What support do I get?</summary>
+          <p class="mt-2 text-sm" style="color:var(--muted)">Join Telegram for 1-on-1 help & exclusive tips.</p>
         </details>
-        <details class="mb-2">
-          <summary class="font-semibold cursor-pointer">Is this safe?</summary>
-          <p class="text-sm" style="color:var(--muted)">Yes, tracked links and SSL secure. Play responsibly.</p>
-        </details>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="mt-8 text-center glass p-12 rounded-2xl reveal">
+      <h2 class="text-4xl font-bold">Ready to Start Winning?</h2>
+      <div class="mt-8 flex flex-col sm:flex-row gap-6 justify-center">
+        <button id="finalRegister" class="btn-cta text-2xl">Register on 1XBET Now</button>
+        <button id="finalTelegram" class="btn-ghost text-xl">Join Telegram</button>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="mt-8 text-sm text-muted flex items-center justify-between">
-      <div>© Lucky Luna — 1XBET Affiliate • 18+ only</div>
-      <div class="flex gap-4">
-        <a href="#" style="color:var(--muted)">Privacy</a>
-        <a href="#" style="color:var(--muted)">Terms</a>
-      </div>
+    <footer class="mt-12 text-center text-sm" style="color:var(--muted)">
+      © Lucky Luna — 1XBET Affiliate • 18+ only • Gamble Responsibly
     </footer>
   </div>
 
-  <!-- COOKIE BANNER -->
-  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:right-auto md:left-auto md:bottom-8 glass p-3 rounded-xl shadow-lg max-w-3xl mx-auto flex items-center justify-between" role="dialog" aria-label="Cookie consent">
-    <div style="color:var(--muted); font-size:13px">We use cookies to improve experience. By using this site you accept our <a href="#" style="text-decoration:underline;color:var(--muted)">Privacy Policy</a>.</div>
-    <div class="flex gap-2">
+  <!-- COOKIE BANNER (kept) -->
+  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:max-w-md mx-auto glass p-4 rounded-xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4" style="z-index:9999">
+    <p class="text-sm" style="color:var(--muted)">We use cookies for better experience. <a href="#" class="underline">Privacy Policy</a></p>
+    <div class="flex gap-3">
       <button id="acceptCookies" class="btn-cta">Accept</button>
       <button id="declineCookies" class="btn-ghost">Decline</button>
     </div>
   </div>
 
   <script>
-    /******************
-     CONFIG - edit if needed
-    *******************/
     const AFFILIATE_LINK = "https://1xbet.com/en?tag=d_5038058m_1599c_";
     const PROMO_CODE = "LLUNA1X";
-    const TELEGRAM_USERNAME = "LuckyLunaSignals"; // <-- replace with your channel username (no @) if needed
-    const TELEGRAM_WEB = `https://t.me/${TELEGRAM_USERNAME}`;
-    const TELEGRAM_DEEP = `tg://resolve?domain=${TELEGRAM_USERNAME}`;
+    const TELEGRAM_WEB = "https://t.me/LuckyLunaSignals";
+    const TELEGRAM_DEEP = "tg://resolve?domain=LuckyLunaSignals";
 
-    /******************
-     UI ELEMENTS
-    *******************/
-    const heroRegister = document.getElementById('heroRegister');
-    const navRegister = document.getElementById('navRegister');
-    const estRegister = document.getElementById('estRegister');
-    const copyCodeBtn = document.getElementById('copyCode');
-    const heroTelegram = document.getElementById('heroTelegram');
-    const navTelegram = document.getElementById('navTelegram');
-    const estTelegram = document.getElementById('estTelegram');
+    // Elements
+    const registers = document.querySelectorAll('#heroRegister, #estRegister, #finalRegister');
+    const telegrams = document.querySelectorAll('#heroTelegram, #estTelegram, #finalTelegram');
+    const copyBtns = document.querySelectorAll('#copyCode');
 
+    function openAffiliate() {
+      let url = AFFILIATE_LINK + (AFFILIATE_LINK.includes('?') ? '&' : '?') + "utm_source=luckyluna&utm_medium=landing&utm_campaign=promo";
+      window.open(url, '_blank');
+      confetti({ particleCount: 200, spread: 80, colors: ['#139fff','#9b59ff','#ffd400'] });
+    }
+
+    function openTelegram() {
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        location.href = TELEGRAM_DEEP;
+        setTimeout(() => window.open(TELEGRAM_WEB, '_blank'), 800);
+      } else {
+        window.open(TELEGRAM_WEB, '_blank');
+      }
+      confetti({ particleCount: 100 });
+    }
+
+    async function copyCode() {
+      await navigator.clipboard.writeText(PROMO_CODE);
+      alert('Code LLUNA1X copied!');
+      confetti();
+    }
+
+    registers.forEach(b => b.addEventListener('click', openAffiliate));
+    telegrams.forEach(b => b.addEventListener('click', openTelegram));
+    copyBtns.forEach(b => b.addEventListener('click', copyCode));
+
+    // Estimator
     const depRange = document.getElementById('depRange');
     const pctRange = document.getElementById('pctRange');
     const depText = document.getElementById('depText');
     const pctText = document.getElementById('pctText');
     const bonusText = document.getElementById('bonusText');
 
-    const cookieBanner = document.getElementById('cookieBanner');
-    const acceptCookies = document.getElementById('acceptCookies');
-    const declineCookies = document.getElementById('declineCookies');
-
-    const spinWheelBtn = document.getElementById('spinWheel');
-    const wheel = document.getElementById('wheel');
-    const spinResult = document.getElementById('spinResult');
-
-    /******************
-     UTIL: toast + copy + confetti
-    *******************/
-    function toast(msg){
-      const t = document.createElement('div');
-      t.innerText = msg;
-      Object.assign(t.style, {
-        position:'fixed', left:'50%', transform:'translateX(-50%)', bottom:'72px',
-        background:'rgba(2,6,23,0.86)', color:'white', padding:'10px 14px', borderRadius:'8px',
-        zIndex:9999, fontSize:'13px'
-      });
-      document.body.appendChild(t);
-      setTimeout(()=> t.style.opacity = '0', 1400);
-      setTimeout(()=> t.remove(), 1800);
+    function update() {
+      const dep = depRange.value;
+      const pct = pctRange.value;
+      depText.innerText = '$' + dep;
+      pctText.innerText = pct + '%';
+      bonusText.innerText = '$' + Math.round(dep * pct / 100);
     }
+    depRange.addEventListener('input', update);
+    pctRange.addEventListener('input', update);
+    update();
 
-    async function copyToClipboard(text){
-      try {
-        await navigator.clipboard.writeText(text);
-        toast('Copied');
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-      } catch (e) {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        toast('Copied');
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-      }
-    }
+    // Cookie
+    document.getElementById('acceptCookies').addEventListener('click', () => { localStorage.setItem('cookies','1'); document.getElementById('cookieBanner').style.display='none'; });
+    document.getElementById('declineCookies').addEventListener('click', () => { localStorage.setItem('cookies','0'); document.getElementById('cookieBanner').style.display='none'; });
+    if (localStorage.getItem('cookies')) document.getElementById('cookieBanner').style.display='none';
 
-    /******************
-     OPEN AFFILIATE (adds UTM)
-    *******************/
-    function openAffiliate(){
-      let url = AFFILIATE_LINK;
-      const utm = "utm_source=luckyluna&utm_medium=landing&utm_campaign=promo";
-      url += url.includes('?') ? '&' + utm : '?' + utm;
-      const w = window.open(url, '_blank', 'noopener');
-      if (!w) { window.location.href = url; }
-      toast('Opening 1XBET — remember LLUNA1X');
-      confetti({ particleCount: 150, spread: 90, colors: ['#139fff', '#9b59ff', '#ffd400'] });
-    }
+    // Reveal
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')), {threshold:0.15}).observe(document.querySelectorAll('.reveal'));
 
-    /******************
-     TELEGRAM: deep link -> fallback
-    *******************/
-    function openTelegram(){
-      const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-      if (isMobile) {
-        // try deep link first
-        window.location.href = TELEGRAM_DEEP;
-        setTimeout(()=> window.open(TELEGRAM_WEB, '_blank', 'noopener'), 700);
-      } else {
-        window.open(TELEGRAM_WEB, '_blank', 'noopener');
-      }
-      confetti({ particleCount: 100, spread: 70 });
-    }
-
-    /******************
-     Attach events
-    *******************/
-    [heroRegister, navRegister, estRegister].forEach(el => el?.addEventListener('click', openAffiliate));
-    [heroTelegram, navTelegram, estTelegram].forEach(el => el?.addEventListener('click', openTelegram));
-    copyCodeBtn?.addEventListener('click', ()=> copyToClipboard(PROMO_CODE));
-
-    // estimator logic (bonus = deposit * (percent / 100))
-    function updateEstimator(){
-      const deposit = Number(depRange?.value || 100);
-      const percent = Number(pctRange?.value || 150);
-      const bonus = Math.round(deposit * (percent / 100));
-      depText.innerText = '$' + deposit;
-      pctText.innerText = percent + '%';
-      bonusText.innerText = '$' + bonus;
-    }
-    depRange?.addEventListener('input', updateEstimator);
-    pctRange?.addEventListener('input', updateEstimator);
-    updateEstimator();
-
-    // spin wheel logic
-    spinWheelBtn?.addEventListener('click', () => {
-      const randomRotation = Math.floor(Math.random() * 360) + 720; // At least 2 full spins
-      wheel.style.transform = `rotate(${randomRotation}deg)`;
-      setTimeout(() => {
-        const prizes = ['Extra 10% Bonus!', 'Free Bet Token!', 'Lucky Spin Again!', 'VIP Tips Access!'];
-        const prizeIndex = Math.floor((randomRotation % 360) / 90);
-        spinResult.innerText = prizes[prizeIndex];
-        confetti({ particleCount: 200, spread: 100, colors: ['#ffd400', '#9b59ff'] });
-        toast('You won: ' + prizes[prizeIndex]);
-      }, 3000);
-    });
-
-    // cookie banner
-    acceptCookies?.addEventListener('click', ()=> {
-      localStorage.setItem('cookiesAccepted','1');
-      cookieBanner.style.display = 'none';
-    });
-    declineCookies?.addEventListener('click', ()=> {
-      localStorage.setItem('cookiesAccepted','0');
-      cookieBanner.style.display = 'none';
-    });
-    if (localStorage.getItem('cookiesAccepted') !== null) cookieBanner.style.display = 'none';
-
-    // reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(entries => {
-      for (const e of entries) if (e.isIntersecting) e.target.classList.add('visible');
-    }, { threshold: 0.12 });
-    reveals.forEach(r => io.observe(r));
-
-    // keyboard shortcut: Ctrl/Cmd + C copies promo code
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
-        e.preventDefault();
-        copyToClipboard(PROMO_CODE);
-      }
-    });
-
-    // Particles JS init
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: ['#139fff', '#9b59ff', '#ffd400'] },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: false },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.1, width: 1 },
-        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-        modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8 }, repulse: { distance: 200 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
-      },
-      retina_detect: true
-    });
-
-    // Custom animation for slow spin
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes spin-slow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      .animate-spin-slow {
-        animation: spin-slow 20s linear infinite;
-      }
-    `;
-    document.head.appendChild(style);
+    // Particles
+    particlesJS('particles-js', { particles: { number: { value: 80 }, color: { value: ['#139fff','#9b59ff','#ffd400'] }, opacity: { value: 0.5 }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, opacity: 0.1 }, move: { enable: true, speed: 1.5 } }, interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }, retina_detect: true });
   </script>
 </body>
 </html>
