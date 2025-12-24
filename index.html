@@ -2,261 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lucky Luna — Exclusive 1XBET Promo Code: LLUNA1X</title>
-  <meta name="description" content="Unlock massive welcome bonuses on 1XBET with code LLUNA1X. Personal Telegram support & daily tips." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucky Luna — 1XBET Exclusive Bonus</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Join 1XBET with Lucky Luna and unlock up to 200% bonus. Trusted picks, transparent betting, real results." />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lucky Luna — Exclusive 1XBET Bonus" />
+  <meta property="og:description" content="Up to 200% bonus with promo code LLUNA1X. Trusted & transparent." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/icons/icon-512x512.png" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#07101a" />
 
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json" />
+  <!-- Tailwind (replace with build CSS in prod) -->
+  <script defer src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Icons for PWA (add your actual icons) -->
-  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
-  <link rel="icon" href="icons/icon-192x192.png">
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Animations -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-  <!-- Lightweight Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.5.0/tsparticles.bundle.min.js"></script>
-
-  <style>
-    :root{
-      --luna-blue: #139fff;
-      --luna-purple: #9b59ff;
-      --luna-gold: #ffd400;
-      --bg-dark: #06060b;
-      --card-bg: rgba(255,255,255,0.03);
-      --muted: rgba(230,242,255,0.72);
-    }
-    html,body{height:100%; margin:0;}
-    body{
-      background: linear-gradient(180deg, #06060b, #07101a);
-      color:#eaf2ff;
-      font-family: system-ui, -apple-system, sans-serif;
-      overflow-x: hidden;
-    }
-
-    .bg-accent {
-      background:
-        radial-gradient(circle at 10% 20%, rgba(19,159,255,0.08), transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(155,89,255,0.06), transparent 20%);
-    }
-
-    .container { max-width:1140px; margin:0 auto; padding:16px; }
-    .glass { background:var(--card-bg); border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(8px); border-radius:16px; }
-    .btn-cta {
-      background: linear-gradient(90deg, var(--luna-blue), var(--luna-purple));
-      padding:14px 28px; border-radius:12px; color:#000; font-weight:700; font-size:1.1rem;
-      transition: all .2s;
-    }
-    .btn-cta:hover { transform:scale(1.05); box-shadow:0 15px 30px rgba(19,159,255,0.2); }
-
-    .btn-ghost { border:1px solid rgba(255,255,255,0.1); padding:12px 24px; border-radius:12px; color:var(--muted); transition: all .2s; }
-    .btn-ghost:hover { background:rgba(255,255,255,0.05); }
-
-    .badge { background: rgba(255,255,255,0.03); padding:8px 16px; border-radius:999px; font-weight:700; font-size:14px; }
-
-    .accent-line { background: linear-gradient(90deg,var(--luna-blue),var(--luna-purple),var(--luna-gold)); height:6px; border-radius:999px; animation: shift 8s linear infinite; }
-    @keyframes shift { 0% { background-position:0% 50% } 100% { background-position:200% 50% } }
-
-    .card-hover { transition: transform .3s, box-shadow .3s; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-
-    .reveal { opacity:0; transform: translateY(20px); transition: all .8s ease; }
-    .reveal.visible { opacity:1; transform: translateY(0); }
-
-    .ticker-wrapper { display:flex; animation: ticker-scroll 30s linear infinite; }
-    .ticker-item { white-space:nowrap; padding:8px 16px; border-radius:999px; background: rgba(255,255,255,0.02); margin-right:24px; flex-shrink:0; }
-    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    /* Spin Wheel */
-    .wheel-container { position:relative; width:220px; height:220px; margin:0 auto; }
-    .wheel { width:100%; height:100%; border-radius:50%; background:conic-gradient(var(--luna-blue) 0% 25%, var(--luna-purple) 25% 50%, var(--luna-gold) 50% 75%, #fff 75% 100%); transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); }
-    .wheel-pointer { position:absolute; top:-10px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:12px solid transparent; border-right:12px solid transparent; border-bottom:24px solid #ffd400; z-index:10; }
-
-    #particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; opacity:0.6; }
-
-    .partner-logo { height:50px; filter: brightness(0) invert(1) opacity(0.8); transition: all .3s; }
-    .partner-logo:hover { opacity:1; transform:scale(1.1); }
-
-    /* Mobile tweaks */
-    @media (max-width: 768px) {
-      .container { padding:12px; }
-      h1 { font-size:2.5rem !important; line-height:1.2; }
-      .btn-cta { padding:16px 24px; font-size:1rem; width:100%; }
-      .btn-ghost { width:100%; }
-      .wheel-container { width:180px; height:180px; }
-      .wheel-pointer { border-bottom-width:20px; border-left-width:10px; border-right-width:10px; }
-      .ticker-item { font-size:0.875rem; padding:6px 12px; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size:2.2rem !important; }
-      .badge { font-size:0.8rem; padding:6px 12px; }
-      .wheel-container { width:160px; height:160px; }
-    }
-  </style>
+  <!-- App JS -->
+  <script defer src="/main.js"></script>
 </head>
-<body class="bg-accent">
-  <div id="particles-js"></div>
 
-  <div class="container pt-6">
+<body class="bg-[#06060b] text-white font-sans">
 
-    <!-- Hero with Christmas visuals -->
-    <section class="glass p-6 md:p-8 rounded-2xl animate__animated animate__fadeIn">
-      <div class="text-center md:flex md:items-center md:justify-between gap-8">
-        <div class="md:max-w-xl">
-          <div class="badge inline-block">Merry Christmas Exclusive</div>
-          <h1 class="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
-            Claim Bigger Bonuses on 1XBET<br>
-            <span class="text-[var(--luna-gold)]">Code: LLUNA1X</span>
-          </h1>
-          <p class="mt-4 text-lg" style="color:var(--muted)">
-            Up to 200% welcome bonus • Personal Telegram help • Daily winning tips
-          </p>
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate__animated animate__fadeInDown">
+      🍀 Lucky Luna
+    </h1>
+    <p class="text-lg max-w-xl text-gray-300 mb-6">
+      Trusted picks. No fake promises.  
+      <span class="text-[#139fff] font-semibold">Up to 200% 1XBET bonus</span>.
+    </p>
 
-          <div class="mt-8 flex flex-col gap-4">
-            <button id="heroRegister" class="btn-cta text-xl">Register & Claim Now</button>
-            <button id="heroTelegram" class="btn-ghost text-lg">Join Telegram</button>
-          </div>
-          <button id="copyCode" class="mt-4 block text-sm underline mx-auto md:mx-0" style="color:var(--muted)">Copy LLUNA1X →</button>
-        </div>
+    <div class="flex gap-4 flex-wrap justify-center">
+      <a
+        href="https://1xbet.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#139fff] hover:bg-purple-500 transition px-6 py-3 rounded-xl font-semibold"
+      >
+        Register on 1XBET
+      </a>
 
-        <div class="mt-10 md:mt-0 order-first md:order-last">
-          <div class="glass p-6 rounded-2xl text-center">
-            <p class="font-bold text-xl">Spin for Your Christmas Luck!</p>
-            <div class="wheel-container mt-6">
-              <div id="wheel" class="wheel"></div>
-              <div class="wheel-pointer"></div>
-            </div>
-            <button id="spinBtn" class="btn-cta mt-6 w-full">Spin the Wheel</button>
-            <p id="spinResult" class="mt-4 font-bold text-[var(--luna-gold)] min-h-8"></p>
-          </div>
+      <a
+        href="https://t.me/yourtelegram"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition"
+      >
+        Join Telegram
+      </a>
+    </div>
 
-          <div class="accent-line mt-6"></div>
-          <div class="mt-6 glass p-4 rounded-xl overflow-hidden">
-            <div class="flex">
-              <div class="ticker-wrapper">
-                <div class="ticker-item">Up to 200% Bonus</div>
-                <div class="ticker-item">High Odds Football</div>
-                <div class="ticker-item">Live Betting</div>
-                <div class="ticker-item">Crash Games</div>
-                <div class="ticker-item">Exclusive Tips</div>
-                <!-- Duplicate -->
-                <div class="ticker-item">Up to 200% Bonus</div>
-                <div class="ticker-item">High Odds Football</div>
-                <div class="ticker-item">Live Betting</div>
-                <div class="ticker-item">Crash Games</div>
-                <div class="ticker-item">Exclusive Tips</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="mt-6 text-sm text-gray-400">
+      Promo code: <strong class="text-white">LLUNA1X</strong>
+      <button id="copyCode" type="button" class="ml-2 underline text-[#139fff]">
+        copy
+      </button>
+    </p>
+  </section>
 
-    <!-- Benefits + Estimator -->
-    <section class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div class="glass p-8 rounded-2xl card-hover reveal">
-        <h2 class="text-3xl font-bold">Why Lucky Luna?</h2>
-        <ul class="mt-6 space-y-4 text-lg" style="color:var(--muted)">
-          <li>• Exclusive boosted bonus with LLUNA1X (up to 200%)</li>
-          <li>• 1-on-1 Telegram onboarding & support</li>
-          <li>• Daily curated tips (no spam)</li>
-          <li>• Trusted affiliate – safe & secure</li>
-        </ul>
-      </div>
+  <!-- BONUS CALCULATOR -->
+  <section class="max-w-xl mx-auto px-6 pb-20">
+    <h2 class="text-2xl font-semibold mb-4 text-center">🎁 Bonus Estimator</h2>
 
-      <div class="glass p-8 rounded-2xl card-hover reveal">
-        <h2 class="text-3xl font-bold">Estimate Your Bonus</h2>
-        <div class="mt-6">
-          <label class="block text-sm" style="color:var(--muted)">Deposit Amount</label>
-          <input id="depRange" type="range" min="10" max="2000" value="100" class="w-full h-3">
-          <div class="text-right font-bold text-xl" id="depText">$100</div>
+    <label class="block mb-2">Deposit Amount ($)</label>
+    <input id="depRange" type="range" min="10" max="1000" step="10" value="100"
+      class="w-full mb-2">
+    <p class="text-sm mb-4">Deposit: <span id="depText">100</span>$</p>
 
-          <label class="block mt-6 text-sm" style="color:var(--muted)">Bonus % (up to 200%)</label>
-          <input id="pctRange" type="range" min="100" max="200" value="150" class="w-full h-3">
-          <div class="text-right font-bold text-xl" id="pctText">150%</div>
+    <label class="block mb-2">Bonus Percentage</label>
+    <input id="pctRange" type="range" min="100" max="200" step="10" value="100"
+      class="w-full mb-2">
+    <p class="text-sm mb-4">Bonus: <span id="pctText">100</span>%</p>
 
-          <div class="mt-10 text-center">
-            <div class="text-5xl font-extrabold text-[var(--luna-gold)]" id="bonusText">$150</div>
-            <p class="text-sm mt-2" style="color:var(--muted)">Estimated welcome bonus</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="text-lg font-semibold">
+      You get: <span id="bonusText" class="text-[#139fff]">100$</span>
+    </p>
+  </section>
 
-    <!-- Christmas Promotions -->
-    <section class="mt-10 text-center reveal">
-      <h2 class="text-3xl font-bold">Festive Christmas Promotions</h2>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- FOOTER -->
+  <footer class="text-center text-xs text-gray-500 pb-6">
+    18+ Gamble responsibly. This site contains affiliate links.
+  </footer>
 
-<grok-card data-id="82a3fc" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="44c3f0" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="c0ec68" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-      </div>
-    </section>
-
-    <!-- Partners -->
-    <section class="mt-10 glass p-8 rounded-2xl text-center reveal">
-      <h2 class="text-3xl font-bold">1XBET Official Partners</h2>
-      <div class="mt-8 flex flex-wrap justify-center gap-8 md:gap-12 items-center">
-
-<grok-card data-id="8a4c28" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="217408" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="d70bb9" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="9ace82" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="b169b7" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="c15d5b" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
-
-      </div>
-    </section>
-
-    <!-- Testimonials & Final CTA (unchanged for brevity) -->
-    <!-- ... (keep previous sections) ... -->
-
-    <footer class="mt-12 text-center text-sm pb-8" style="color:var(--muted)">
-      © Lucky Luna — 1XBET Affiliate • 18+ • Responsible Gaming
-    </footer>
-  </div>
-
-  <!-- Service Worker Registration for PWA -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-
-    // Rest of your script (CTAs, estimator, spin wheel, particles) remains the same
-    // ...
-  </script>
 </body>
 </html>
