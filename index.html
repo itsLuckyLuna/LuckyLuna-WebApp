@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Luna's Betting Hub — SUPERNATURAL • 1XBET VIP</title>
+  <meta name="description" content="Join 1XBET through Luna's Betting Hub for trusted sports betting and casino thrills. Unlock bonuses and start winning today!">
+
+  <!-- Fonts + icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS for simple scroll animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <!-- tsParticles for background particles (subtle) -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.8.0/tsparticles.bundle.min.js"></script>
+
+  <!-- GSAP for small micro-interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root{
+      --bg1:#05203a;
+      --bg2:#0f172a;
+      --accent:#ff66b2;
+      --gold:#ffd24d;
+      --glass: rgba(255,255,255,0.04);
+      --muted:#cbd5e1;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 60%);
+      color:#eef6ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* simple top progress bar */
+    .progress-bar{ position:fixed; left:0; top:0; width:100%; height:6px; background:rgba(255,255,255,0.03); z-index:60 }
+    .progress-fill{ height:100%; width:28%; background: linear-gradient(90deg,var(--accent),var(--gold)); box-shadow:0 6px 24px rgba(255,102,178,0.08); transition:width .8s ease; }
+
+    /* particles canvas (behind) */
+    #tsparticles{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+
+    nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 20px; position:sticky; top:0; z-index:55; background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent); border-bottom:1px solid rgba(255,255,255,0.03); }
+    .brand{ display:flex; gap:12px; align-items:center }
+    .orb{ width:44px; height:44px; border-radius:999px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(255,255,255,0.02) 30%); box-shadow:0 10px 30px rgba(255,102,178,0.06) }
+    .brand h1{ margin:0; font-family:'Playfair Display', serif; font-weight:700; font-size:18px; letter-spacing:0.5px }
+    .promo{ padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); font-size:12px; color:var(--gold); font-weight:700 }
+
+    /* HERO */
+    #hero{ position:relative; min-height:72vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:36px 16px; }
+    #hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(45deg, rgba(255,102,178,0.06), rgba(255,210,77,0.04));
+      z-index:0; pointer-events:none;
+    }
+    #hero video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.35; filter:contrast(0.95) saturate(1.05) }
+    .hero-inner{ position:relative; z-index:10; max-width:980px; }
+    .headline{ font-family:'Playfair Display', serif; font-size:34px; margin:0 0 12px; line-height:1.02; color:#fff; text-shadow:0 6px 30px rgba(0,0,0,0.5) }
+    .sub{ color:var(--muted); margin:0 0 20px; font-size:15px }
+
+    .cta-button{
+      display:inline-block; background:linear-gradient(90deg,var(--gold),#ffdd7f); color:var(--bg2); padding:14px 26px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 12px 40px rgba(255,210,77,0.12); transform-origin:center; transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-button:hover{ transform:translateY(-6px); box-shadow:0 24px 60px rgba(255,210,77,0.18) }
+
+    /* small calculator card */
+    .calc{ margin:22px auto 0; width:100%; max-width:540px; background:var(--glass); border-radius:16px; padding:18px; border:1px solid rgba(255,255,255,0.04); box-shadow:0 10px 40px rgba(11,22,44,0.45) }
+    .calc .row{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px }
+    .calc .label{ font-size:12px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase }
+    .big-money{ font-family:'Roboto',monospace; font-weight:700; font-size:24px; color:#fff }
+
+    /* Features / cards */
+    .section{ padding:46px 16px; max-width:1200px; margin:0 auto }
+    .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px }
+    .card{ background:rgba(255,255,255,0.02); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); transition:transform .22s ease, box-shadow .22s ease }
+    .card:hover{ transform:translateY(-8px); box-shadow:0 18px 50px rgba(0,0,0,0.45) }
+    .card h3{ margin:8px 0 6px; font-size:16px; color:#fff }
+    .card p{ margin:0; color:var(--muted); font-size:13px }
+
+    /* marquee */
+    .marquee{ overflow:hidden; white-space:nowrap; border-top:1px solid rgba(255,255,255,0.03); border-bottom:1px solid rgba(255,255,255,0.03); padding:12px 0; margin-top:28px }
+    .marquee-inner{ display:inline-block; animation:marquee 18s linear infinite }
+    @keyframes marquee{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+
+    /* testimonials */
+    .testimonials{ display:flex; gap:12px; overflow:hidden; position:relative; }
+    .testimonial{ min-width:100%; padding:18px; text-align:center; background:rgba(255,255,255,0.02); border-radius:12px }
+    .testimonial p{ margin:0; color:var(--muted) }
+
+    /* footer */
+    footer{ padding:36px 16px; text-align:center; color:var(--muted) }
+
+    /* tip box */
+    .tip-box{ position:fixed; right:18px; bottom:110px; z-index:70; display:none }
+
+    /* responsive */
+    @media (min-width:900px){
+      .headline{ font-size:44px }
+    }
+  </style>
+</head>
+<body>
+  <!-- small configuration: edit here or pass ?aff=... -->
+  <script>
+    const AFFILIATE_LINK = (new URLSearchParams(location.search).get('aff') || 'https://1xbet.com/registration/?tag=YOUR_AFF_ID');
+  </script>
+
+  <div class="progress-bar" aria-hidden="true"><div id="pFill" class="progress-fill"></div></div>
+
+  <!-- particles background -->
+  <div id="tsparticles" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="brand">
+      <div class="orb" aria-hidden="true"></div>
+      <div>
+        <h1>LuckyLuna</h1>
+        <div style="font-size:11px;color:var(--muted)">Royal Partner</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="promo">PROMO LUNA1X</div>
+      <button id="openMenu" style="background:transparent;border:0;color:var(--muted);font-weight:600;cursor:pointer">Menu</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" role="banner" aria-labelledby="heroTitle">
+    <!-- optional video background (replace URL) -->
+    <video autoplay muted loop playsinline>
+      <!-- replace with your own video or remove the element to save data -->
+      <source src="" type="video/mp4">
+    </video>
+
+    <div class="hero-inner" data-aos="fade-up">
+      <h2 id="heroTitle" class="headline">Unlock Trusted Betting Thrills with <span style="background:linear-gradient(90deg,var(--gold),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">1XBET</span></h2>
+      <p class="sub">Join Luna's Betting Hub — VIP promos, curated picks, honest odds. 18+ only. Play responsibly.</p>
+
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap">
+        <a id="cta" href="#" class="cta-button" role="button" aria-label="Join & Claim Bonus">Join Now & Claim Your Bonus</a>
+        <a id="howit" href="#" style="color:var(--muted); font-weight:600; text-decoration:underline; font-size:14px">How it works</a>
+      </div>
+
+      <!-- calculator -->
+      <div class="calc" aria-hidden="false" data-aos="fade-up">
+        <div class="row">
+          <div class="label">Your First Deposit</div>
+          <div class="big-money">$<span id="depositVal">100</span></div>
+        </div>
+        <input id="depositSlider" type="range" min="10" max="1000" step="10" value="100" aria-label="Deposit amount">
+        <div class="row" style="margin-top:12px">
+          <div class="label">Total to Play With</div>
+          <div class="big-money" id="totalDisplay">$200</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section class="section">
+    <div class="container" style="max-width:1100px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <h3 style="margin:0;font-family:'Playfair Display',serif">Why Pick 1XBET via Luna</h3>
+        <div style="color:var(--muted);font-weight:600">Trusted • Fast Payouts • VIP Promos</div>
+      </div>
+
+      <div class="cards" style="margin-top:18px">
+        <div class="card" data-aos="zoom-in">
+          <div style="font-size:22px">🛡️</div>
+          <h3>Licensed & Trusted</h3>
+          <p>Operating internationally with secure payouts.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <div style="font-size:22px">⚽</div>
+          <h3>Wide Coverage</h3>
+          <p>Thousands of events and live odds every day.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <div style="font-size:22px">🎰</div>
+          <h3>Bonuses & Spins</h3>
+          <p>Generous welcome offers and ongoing promos.</p>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true" style="margin-top:24px">
+        <div class="marquee-inner">
+          <span style="margin-right:36px;color:var(--accent)">🔥 Anna K. just won $2,400!</span>
+          <span style="margin-right:36px;color:var(--gold)">💎 VIP Code LUNA1X Active</span>
+          <span style="margin-right:36px;color:var(--accent)">🔥 Elena just won 200 Free Spins!</span>
+          <!-- repeat for seamless effect -->
+          <span style="margin-left:24px;margin-right:36px;color:var(--accent)">🔥 Anna K. just won $2,400!</span>
+          <span style="margin-right:36px;color:var(--gold)">💎 VIP Code LUNA1X Active</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- testimonials -->
+  <section class="section" style="padding-top:18px;padding-bottom:18px">
+    <div class="container">
+      <h3 style="margin-bottom:12px">What Our Users Say</h3>
+      <div class="testimonials" id="testimonialWrap">
+        <div class="testimonial" data-aos="fade-left">
+          <p>"1XBET changed my betting game! Fast wins and great bonuses." — Sarah W.</p>
+        </div>
+        <div class="testimonial" data-aos="fade-left">
+          <p>"Love the live casino – feels like Vegas from home!" — Mia L.</p>
+        </div>
+        <div class="testimonial" data-aos="fade-left">
+          <p>"Secure and fun – highly recommend via Luna's Hub." — Emma T.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section class="section" style="padding-top:12px;padding-bottom:12px">
+    <div class="container" style="max-width:800px">
+      <h3>How It Works</h3>
+      <div class="steps" style="margin-top:12px">
+        <div class="step" data-aos="fade-up" data-step="1" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">1. Sign up via my affiliate link</div>
+        <div class="step" data-aos="fade-up" data-step="2" data-aos-delay="150" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">2. Make a secure deposit</div>
+        <div class="step" data-aos="fade-up" data-step="3" data-aos-delay="300" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent); margin-bottom:10px">3. Place bets or play casino — small, smart slips</div>
+        <div class="step" data-aos="fade-up" data-step="4" data-aos-delay="450" style="background:#fff; color:#0b1220; border-radius:8px; padding:14px; border-left:6px solid var(--accent)">4. Withdraw quickly — enjoy your wins</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- tip box -->
+  <div class="tip-box" id="tipBox" aria-hidden="true">
+    <div style="background:var(--glass);padding:12px;border-radius:12px;border-left:4px solid var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.5)">
+      <div style="font-size:14px;font-weight:700;color:var(--accent)">Luna's Live Tip</div>
+      <div style="font-size:13px;color:#fff">Real Madrid • Match Winner (Live Odds 2.10)</div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div style="max-width:980px;margin:0 auto;padding:18px">
+      <p style="margin:6px 0;color:var(--muted);font-size:13px">18+ only. Gamble responsibly. Affiliate disclosure: promotional content for 1XBET. Terms apply.</p>
+      <div style="margin:12px 0">
+        <a id="footerCTA" href="#" class="cta-button" style="background:transparent; color:var(--gold); box-shadow:none; border:1px solid rgba(255,210,77,0.12)">Get Started Today</a>
+      </div>
+      <div style="color:var(--muted)"><a href="https://www.gamblingtherapy.org/" style="color:var(--muted)">Responsible Gambling</a> · <a href="#" style="color:var(--muted)">Privacy</a></div>
+    </div>
+  </footer>
+
+  <!-- confetti canvas (hidden visually, used by canvas-confetti) -->
+  <canvas id="confetti-canvas" style="position:fixed; inset:0; pointer-events:none; z-index:9999; display:none"></canvas>
+
+  <!-- Scripts: AOS, simple carousel, tsParticles, interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 650, once: true, easing: 'ease-out-cubic' });
+
+    // tsParticles subtle background
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      particles: {
+        number: { value: 30, density: { enable: true, area: 900 } },
+        color: { value: ['#ff66b2', '#ffd24d', '#ffffff'] },
+        shape: { type: ['circle','polygon'], options: { polygon: { sides: 4 } } },
+        opacity: { value: 0.08 },
+        size: { value: { min: 1, max: 7 } },
+        move: { enable: true, speed: 0.6, direction: 'top', outModes: { default: 'out' } }
+      },
+      interactivity: { events: { onHover: { enable: true, mode: 'grab' } }, modes: { grab: { distance: 120 } } }
+    });
+  </script>
+
+  <script>
+    // TELEGRAM WEBAPP support (optional)
+    const tg = window.Telegram?.WebApp;
+    try{ tg?.ready?.(); tg?.expand?.(); }catch(e){ /* ignore if not available */ }
+
+    // Elements
+    const depositSlider = document.getElementById('depositSlider');
+    const depositVal = document.getElementById('depositVal');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const cta = document.getElementById('cta');
+    const footerCTA = document.getElementById('footerCTA');
+    const tipBox = document.getElementById('tipBox');
+    const pFill = document.getElementById('pFill');
+
+    // Bonus calculation: 100% match up to $500, then 50% beyond (rounded to 5)
+    function calculateBonus(deposit){
+      const d = Number(deposit);
+      const cap = 500;
+      let bonus;
+      if(d <= cap){
+        bonus = d;
+      } else {
+        const extra = d - cap;
+        bonus = cap + extra * 0.5;
+      }
+      // round to nearest 5
+      bonus = Math.round(bonus / 5) * 5;
+      return bonus;
+    }
+
+    function updateDepositUI(source){
+      const d = Number(depositSlider.value);
+      const bonus = calculateBonus(d);
+      depositVal.innerText = d.toLocaleString();
+      totalDisplay.innerText = '$' + (d + bonus).toLocaleString();
+      // simple pulse
+      gsap.fromTo(totalDisplay, {scale:0.98}, {scale:1, duration:0.45, ease:'elastic.out(1,0.6)'});
+      try{ tg?.HapticFeedback?.selectionChanged?.(); }catch(e){}
+    }
+
+    depositSlider.addEventListener('input', ()=> updateDepositUI('slider'));
+    depositSlider.addEventListener('keydown', (e)=>{
+      // keyboard accessibility: left/right arrows
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowDown'){ depositSlider.value = Math.max(Number(depositSlider.min), Number(depositSlider.value) - Number(depositSlider.step)); updateDepositUI('keyboard'); }
+      if(e.key === 'ArrowRight' || e.key === 'ArrowUp'){ depositSlider.value = Math.min(Number(depositSlider.max), Number(depositSlider.value) + Number(depositSlider.step)); updateDepositUI('keyboard'); }
+    });
+    updateDepositUI();
+
+    // Testimonials carousel (tiny)
+    (function(){
+      const wrap = document.getElementById('testimonialWrap');
+      const children = wrap.children;
+      let idx = 0;
+      setInterval(()=> {
+        idx = (idx + 1) % children.length;
+        wrap.style.transform = `translateX(-${idx * 100}%)`;
+        wrap.style.transition = 'transform .7s cubic-bezier(.2,.9,.3,1)';
+      }, 5200);
+    })();
+
+    // Confetti trigger using canvas-confetti
+    function fireConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      canvas.style.display = 'block';
+      // full-screen confetti
+      confetti({
+        particleCount: 140,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff66b2', '#ffd24d', '#ffffff']
+      });
+      try{ tg?.HapticFeedback?.notificationOccurred?.('success'); }catch(e){}
+      // hide after short timeout (canvas-confetti handles visuals)
+      setTimeout(()=> { canvas.style.display = 'none'; }, 900);
+    }
+
+    // CTA behavior: confetti + open affiliate link + show Telegram MainButton
+    function startConversion(source){
+      fireConfetti();
+      gsap.to(cta, { scale: 0.98, duration: 0.08, yoyo: true, repeat: 1 });
+      // progress fill to 100% for effect then open link
+      pFill.style.width = '100%';
+      setTimeout(()=> {
+        if(tg){
+          try{ tg.openLink(AFFILIATE_LINK); }catch(e){ window.open(AFFILIATE_LINK, '_blank'); }
+        } else {
+          window.open(AFFILIATE_LINK, '_blank');
+        }
+        // optional beacon (no external libs)
+        navigator.sendBeacon && navigator.sendBeacon('/_conv', JSON.stringify({t:Date.now(), s:source, aff:AFFILIATE_LINK}));
+      }, 650);
+    }
+
+    cta.addEventListener('click', (e)=>{ e.preventDefault(); startConversion('hero-cta'); });
+    footerCTA.addEventListener('click', (e)=>{ e.preventDefault(); startConversion('footer-cta'); });
+
+    // show tip box briefly
+    setTimeout(()=> {
+      tipBox.style.display = 'block';
+      gsap.fromTo(tipBox, {y:20, autoAlpha:0}, { y:0, autoAlpha:1, duration:0.5, ease:'power2.out' });
+      setTimeout(()=> gsap.to(tipBox, { y:20, autoAlpha:0, duration:0.45, onComplete: ()=> tipBox.style.display='none' }), 6000);
+    }, 7000);
+
+    // Telegram MainButton: set text and route to affiliate link if TG present
+    if(tg){
+      try{
+        tg.MainButton.setParams({ color: '#ff66b2', text_color: '#ffffff' });
+        tg.MainButton.setText('CLAIM BONUS — JOIN NOW');
+        tg.MainButton.show();
+        tg.MainButton.onClick(()=> startConversion('tg-main'));
+      }catch(e){
+        console.warn('Telegram MainButton not available', e);
+      }
+    }
+
+    // Small entrance micro-animations
+    gsap.from('.hero-inner .headline', { y:-18, autoAlpha:0, duration:0.9, ease:'power3.out' });
+    gsap.from('.calc', { y:12, autoAlpha:0, duration:0.9, delay:0.12 });
+
+    // Accessibility: ensure CTA is keyboard focusable
+    cta.tabIndex = 0;
+    cta.addEventListener('keydown', (e)=> { if(e.key === 'Enter') startConversion('hero-cta-key'); });
+
+    // Small console note
+    console.log('Luna landing initialized — Affiliate:', AFFILIATE_LINK);
+  </script>
+</body>
+</html>
